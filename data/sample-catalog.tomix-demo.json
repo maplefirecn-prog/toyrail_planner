@@ -1,0 +1,205 @@
+{
+  "schema": "raildesign.catalog.v1",
+  "catalogId": "tomix.demo.finetrack.n",
+  "version": "2026.06.21-demo",
+  "units": "mm",
+  "manufacturer": "Tomix",
+  "productLine": "Fine Track Demo",
+  "scale": "N",
+  "gaugeMm": 9,
+  "description": "Demo catalog for local MVP development. Dimensions are representative examples and should be replaced with verified manufacturer data.",
+  "connectorProfiles": [
+    {
+      "id": "tomix-demo-finetrack",
+      "name": "Tomix demo Fine Track connector",
+      "compatibleWith": ["tomix-demo-finetrack"]
+    }
+  ],
+  "pieces": [
+    {
+      "id": "tomix.demo.s70",
+      "sku": "S70",
+      "name": "Straight Track S70",
+      "kind": "track.straight",
+      "tags": ["track", "straight"],
+      "geometry": {
+        "connectors": [
+          { "id": "A", "x": 0, "y": 0, "z": 0, "yawDeg": 180, "profile": "tomix-demo-finetrack" },
+          { "id": "B", "x": 70, "y": 0, "z": 0, "yawDeg": 0, "profile": "tomix-demo-finetrack" }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": ["A", "B"],
+            "segments": [{ "type": "line", "lengthMm": 70 }]
+          }
+        ]
+      },
+      "render": { "railGaugeMm": 9, "roadbedWidthMm": 18.5, "sleeperSpacingMm": 6 },
+      "bom": { "countAs": "tomix.demo.s70", "quantity": 1 },
+      "sources": [
+        {
+          "url": "",
+          "title": "Demo placeholder",
+          "retrievedAt": "2026-06-21",
+          "confidence": "estimated"
+        }
+      ]
+    },
+    {
+      "id": "tomix.demo.s140",
+      "sku": "S140",
+      "name": "Straight Track S140",
+      "kind": "track.straight",
+      "tags": ["track", "straight"],
+      "geometry": {
+        "connectors": [
+          { "id": "A", "x": 0, "y": 0, "z": 0, "yawDeg": 180, "profile": "tomix-demo-finetrack" },
+          { "id": "B", "x": 140, "y": 0, "z": 0, "yawDeg": 0, "profile": "tomix-demo-finetrack" }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": ["A", "B"],
+            "segments": [{ "type": "line", "lengthMm": 140 }]
+          }
+        ]
+      },
+      "render": { "railGaugeMm": 9, "roadbedWidthMm": 18.5, "sleeperSpacingMm": 6 },
+      "bom": { "countAs": "tomix.demo.s140", "quantity": 1 },
+      "sources": [
+        {
+          "url": "",
+          "title": "Demo placeholder",
+          "retrievedAt": "2026-06-21",
+          "confidence": "estimated"
+        }
+      ]
+    },
+    {
+      "id": "tomix.demo.c280-45l",
+      "sku": "C280-45L",
+      "name": "Curve Track C280-45 Left",
+      "kind": "track.curve",
+      "tags": ["track", "curve", "left"],
+      "geometry": {
+        "connectors": [
+          { "id": "A", "x": 0, "y": 0, "z": 0, "yawDeg": 180, "profile": "tomix-demo-finetrack" },
+          { "id": "B", "x": 197.99, "y": 82.01, "z": 0, "yawDeg": 45, "profile": "tomix-demo-finetrack" }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": ["A", "B"],
+            "segments": [{ "type": "arc", "radiusMm": 280, "angleDeg": 45, "direction": "left" }]
+          }
+        ]
+      },
+      "render": { "railGaugeMm": 9, "roadbedWidthMm": 18.5, "sleeperSpacingMm": 6 },
+      "bom": { "countAs": "tomix.demo.c280-45l", "quantity": 1 },
+      "sources": [
+        {
+          "url": "",
+          "title": "Demo placeholder",
+          "retrievedAt": "2026-06-21",
+          "confidence": "estimated"
+        }
+      ]
+    },
+    {
+      "id": "tomix.demo.c280-45r",
+      "sku": "C280-45R",
+      "name": "Curve Track C280-45 Right",
+      "kind": "track.curve",
+      "tags": ["track", "curve", "right"],
+      "geometry": {
+        "connectors": [
+          { "id": "A", "x": 0, "y": 0, "z": 0, "yawDeg": 180, "profile": "tomix-demo-finetrack" },
+          { "id": "B", "x": 197.99, "y": -82.01, "z": 0, "yawDeg": -45, "profile": "tomix-demo-finetrack" }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": ["A", "B"],
+            "segments": [{ "type": "arc", "radiusMm": 280, "angleDeg": 45, "direction": "right" }]
+          }
+        ]
+      },
+      "render": { "railGaugeMm": 9, "roadbedWidthMm": 18.5, "sleeperSpacingMm": 6 },
+      "bom": { "countAs": "tomix.demo.c280-45r", "quantity": 1 },
+      "sources": [
+        {
+          "url": "",
+          "title": "Demo placeholder",
+          "retrievedAt": "2026-06-21",
+          "confidence": "estimated"
+        }
+      ]
+    },
+    {
+      "id": "tomix.demo.turnout-r",
+      "sku": "PR-demo",
+      "name": "Power Turnout Right Demo",
+      "kind": "track.turnout",
+      "tags": ["track", "turnout", "right"],
+      "geometry": {
+        "connectors": [
+          { "id": "A", "x": 0, "y": 0, "z": 0, "yawDeg": 180, "profile": "tomix-demo-finetrack" },
+          { "id": "B", "x": 140, "y": 0, "z": 0, "yawDeg": 0, "profile": "tomix-demo-finetrack" },
+          { "id": "C", "x": 139.52, "y": -12.2, "z": 0, "yawDeg": -10, "profile": "tomix-demo-finetrack" }
+        ],
+        "routes": [
+          {
+            "id": "straight",
+            "connectorIds": ["A", "B"],
+            "segments": [{ "type": "line", "lengthMm": 140 }]
+          },
+          {
+            "id": "diverging",
+            "connectorIds": ["A", "C"],
+            "segments": [{ "type": "arc", "radiusMm": 800, "angleDeg": 10, "direction": "right" }]
+          }
+        ]
+      },
+      "render": { "railGaugeMm": 9, "roadbedWidthMm": 22, "sleeperSpacingMm": 6 },
+      "bom": { "countAs": "tomix.demo.turnout-r", "quantity": 1 },
+      "sources": [
+        {
+          "url": "",
+          "title": "Demo placeholder",
+          "retrievedAt": "2026-06-21",
+          "confidence": "estimated"
+        }
+      ]
+    },
+    {
+      "id": "tomix.demo.support-55",
+      "sku": "P55-demo",
+      "name": "Elevated Pier 55mm Demo",
+      "kind": "accessory.support",
+      "tags": ["support", "elevated"],
+      "dimensions": { "widthMm": 22, "depthMm": 22, "heightMm": 55 },
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": true,
+        "supportsElevationMm": [50, 55, 60],
+        "defaultSpacingMm": 140
+      },
+      "render": { "color": "#aeb8c8" },
+      "bom": { "countAs": "tomix.demo.support-55", "quantity": 1 },
+      "sources": [
+        {
+          "url": "",
+          "title": "Demo placeholder",
+          "retrievedAt": "2026-06-21",
+          "confidence": "estimated"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2026-06-21T00:00:00Z",
+    "updatedAt": "2026-06-21T00:00:00Z",
+    "notes": "Replace demo dimensions with verified catalog data before production use."
+  }
+}

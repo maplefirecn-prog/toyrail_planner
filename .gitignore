@@ -1,0 +1,19 @@
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor junk
+.vscode/
+.idea/
+*.swp
+*~
+
+# Claude Code session-local config
+# (contains absolute paths like D:\Program Files\nodejs\node.exe that are
+# specific to your machine; safe to omit from the repo)
+.claude/
+
+# Node — reserved in case npm tooling is added later
+node_modules/
+npm-debug.log*

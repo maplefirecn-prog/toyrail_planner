@@ -1,0 +1,5798 @@
+{
+  "schema": "raildesign.catalog.v1",
+  "catalogId": "tomix.fine-track.n.official-list",
+  "version": "2026-06-21-official-list",
+  "units": "mm",
+  "manufacturer": "Tomix",
+  "productLine": "Fine Track",
+  "scale": "N",
+  "gaugeMm": 9,
+  "description": "TOMIX Fine Track catalog generated from the official TOMIX beginner/lineup pages. Some complex products require later product-page verification.",
+  "connectorProfiles": [
+    {
+      "id": "tomix-fine-track",
+      "name": "TOMIX Fine Track connector",
+      "compatibleWith": [
+        "tomix-fine-track"
+      ]
+    }
+  ],
+  "pieces": [
+    {
+      "id": "tomix.fine-track.1011",
+      "sku": "1011",
+      "name": "S140-PC PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 140.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1011",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートPCレール S140-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1012",
+      "sku": "1012",
+      "name": "S280-PC PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 280.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 280.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1012",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートPCレール S280-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1013",
+      "sku": "1013",
+      "name": "S72.5-PC PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 72.5,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 72.5
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1013",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートPCレール S72.5-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1014",
+      "sku": "1014",
+      "name": "S70-PC PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 70.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 70.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1014",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートPCレール S70-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1015",
+      "sku": "1015",
+      "name": "S99-PC PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 99.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 99.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1015",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートPCレール S99-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1016",
+      "sku": "1016",
+      "name": "S158.5-PC PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 158.5,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 158.5
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1016",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートPCレール S158.5-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1863",
+      "sku": "1863",
+      "name": "C243-15-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 62.893,
+            "y": 8.28,
+            "z": 0,
+            "yawDeg": 15.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 243.0,
+                "angleDeg": 15.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1863",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C243-15-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1864",
+      "sku": "1864",
+      "name": "C354-15-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 91.622,
+            "y": 12.062,
+            "z": 0,
+            "yawDeg": 15.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 354.0,
+                "angleDeg": 15.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1864",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C354-15-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1865",
+      "sku": "1865",
+      "name": "C391-15-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 101.198,
+            "y": 13.323,
+            "z": 0,
+            "yawDeg": 15.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 391.0,
+                "angleDeg": 15.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1865",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C391-15-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1190",
+      "sku": "1190",
+      "name": "C605-10-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 105.057,
+            "y": 9.191,
+            "z": 0,
+            "yawDeg": 10.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 605.0,
+                "angleDeg": 10.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1190",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C605-10-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1191",
+      "sku": "1191",
+      "name": "C280-45-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 197.99,
+            "y": 82.01,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 280.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1191",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C280-45-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1192",
+      "sku": "1192",
+      "name": "C317-45-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 224.153,
+            "y": 92.847,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 317.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1192",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C317-45-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1193",
+      "sku": "1193",
+      "name": "C541-15-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.021,
+            "y": 18.434,
+            "z": 0,
+            "yawDeg": 15.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 541.0,
+                "angleDeg": 15.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1193",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C541-15-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1194",
+      "sku": "1194",
+      "name": "C280-15-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 72.469,
+            "y": 9.541,
+            "z": 0,
+            "yawDeg": 15.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 280.0,
+                "angleDeg": 15.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1194",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C280-15-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1195",
+      "sku": "1195",
+      "name": "C243-45-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 171.827,
+            "y": 71.173,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 243.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1195",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C243-45-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1196",
+      "sku": "1196",
+      "name": "C354-45-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 250.316,
+            "y": 103.684,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 354.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1196",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C354-45-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1197",
+      "sku": "1197",
+      "name": "C317-15-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 82.046,
+            "y": 10.802,
+            "z": 0,
+            "yawDeg": 15.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 317.0,
+                "angleDeg": 15.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1197",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C317-15-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1198",
+      "sku": "1198",
+      "name": "C391-45-PC PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 276.479,
+            "y": 114.521,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 391.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1198",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブPCレール C391-45-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1821",
+      "sku": "1821",
+      "name": "S140-PC 高架PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std",
+        "elevated"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 140.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1821",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "高架橋付PCレールHS140-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1822",
+      "sku": "1822",
+      "name": "S280-PC 高架PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std",
+        "elevated"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 280.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 280.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1822",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "高架橋付PCレールHS280-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1825",
+      "sku": "1825",
+      "name": "S99-PC 高架PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std",
+        "elevated"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 99.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 99.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1825",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "高架橋付PCレールHS99-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1826",
+      "sku": "1826",
+      "name": "S158.5-PC 高架PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std",
+        "elevated"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 158.5,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 158.5
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1826",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "高架橋付PCレールHS158.5-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1871",
+      "sku": "1871",
+      "name": "HC280-45-PC 高架PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std",
+        "elevated"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 197.99,
+            "y": 82.01,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 280.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1871",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "高架橋付PCレールHC280-45-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1872",
+      "sku": "1872",
+      "name": "HC317-45-PC 高架PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std",
+        "elevated"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 224.153,
+            "y": 92.847,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 317.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1872",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "高架橋付PCレールHC317-45-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1873",
+      "sku": "1873",
+      "name": "HC243-45-PC 高架PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std",
+        "elevated"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 171.827,
+            "y": 71.173,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 243.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1873",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "高架橋付PCレールHC243-45-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1874",
+      "sku": "1874",
+      "name": "HC354-45-PC 高架PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std",
+        "elevated"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 250.316,
+            "y": 103.684,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 354.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1874",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "高架橋付PCレールHC354-45-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1875",
+      "sku": "1875",
+      "name": "HC391-45-PC 高架PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std",
+        "elevated"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 276.479,
+            "y": 114.521,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 391.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1875",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "高架橋付PCレールHC391-45-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1876",
+      "sku": "1876",
+      "name": "HC541-15-PC 高架PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std",
+        "elevated"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.021,
+            "y": 18.434,
+            "z": 0,
+            "yawDeg": 15.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 541.0,
+                "angleDeg": 15.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1876",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "高架橋付PCレールHC541-15-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1526",
+      "sku": "1526",
+      "name": "V70-PC PC配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_std",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1526",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "バリアブルPCレールV70-PC(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1801",
+      "sku": "1801",
+      "name": "S140 直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 140.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1801",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートレールS140(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1802",
+      "sku": "1802",
+      "name": "S280 直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 280.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 280.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1802",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートレールS280(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1803",
+      "sku": "1803",
+      "name": "S72.5 直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 72.5,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 72.5
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1803",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートレールS72.5(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1804",
+      "sku": "1804",
+      "name": "S70 直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 70.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 70.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1804",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートレールS70(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1805",
+      "sku": "1805",
+      "name": "S99 直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 99.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 99.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1805",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートレールS99(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1806",
+      "sku": "1806",
+      "name": "S158.5 直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 158.5,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 158.5
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1806",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ストレートレールS158.5(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1099",
+      "sku": "1099",
+      "name": "S18.5 直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 18.5,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 18.5
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1099",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "端数レールS18.5(F)S33(F)(各2本セット）"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1851",
+      "sku": "1851",
+      "name": "C280-45 曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 197.99,
+            "y": 82.01,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 280.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1851",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブレールC280-45(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1852",
+      "sku": "1852",
+      "name": "C317-45 曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 224.153,
+            "y": 92.847,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 317.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1852",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブレールC317-45(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1853",
+      "sku": "1853",
+      "name": "C541-15 曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.021,
+            "y": 18.434,
+            "z": 0,
+            "yawDeg": 15.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 541.0,
+                "angleDeg": 15.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1853",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブレールC541-15(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1854",
+      "sku": "1854",
+      "name": "C280-15 曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 72.469,
+            "y": 9.541,
+            "z": 0,
+            "yawDeg": 15.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 280.0,
+                "angleDeg": 15.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1854",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブレールC280-15(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1855",
+      "sku": "1855",
+      "name": "C243-45 曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 171.827,
+            "y": 71.173,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 243.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1855",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブレールC243-45(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1856",
+      "sku": "1856",
+      "name": "C354-45 曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 250.316,
+            "y": 103.684,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 354.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1856",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブレールC354-45(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1858",
+      "sku": "1858",
+      "name": "C391-45 曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 276.479,
+            "y": 114.521,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 391.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1858",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブレールC391-45(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1870",
+      "sku": "1870",
+      "name": "C605-10 曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_std"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 105.057,
+            "y": 9.191,
+            "z": 0,
+            "yawDeg": 10.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 605.0,
+                "angleDeg": 10.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1870",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "カーブレールC605-10(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1525",
+      "sku": "1525",
+      "name": "V70 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_std",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1525",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "バリアブルレールV70(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1297",
+      "sku": "1297",
+      "name": "S140-SY 直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_point"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 140.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1297",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_point&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "安全側線レールPL541-15-S140-SY(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1298",
+      "sku": "1298",
+      "name": "PR541-15-C541-SY 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_point",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1298",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_point&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "安全側線レールPR541-15-C541-SY(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1321",
+      "sku": "1321",
+      "name": "X72.5-30 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_spc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1321",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "クロッシングレール X72.5-30(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1322",
+      "sku": "1322",
+      "name": "XR140-15 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_spc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1322",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "クロッシングレール XR140-15(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1323",
+      "sku": "1323",
+      "name": "XL140-15 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_spc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1323",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "クロッシングレール XL140-15(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1324",
+      "sku": "1324",
+      "name": "X37-90 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_spc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1324",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "クロッシングレール X37-90(F)(補助レール付)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1421",
+      "sku": "1421",
+      "name": "1421 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_spc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1421",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "エンドレールE (F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1423",
+      "sku": "1423",
+      "name": "LED2 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_spc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1423",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "エンドレールE(LED2・ノイズキャンセラー付)(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1428",
+      "sku": "1428",
+      "name": "1428 PC配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_spc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1428",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "エンドPCレールE-PC(LEDタイプ)(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1521",
+      "sku": "1521",
+      "name": "M70 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_spc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1521",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "解放ランプ付レール M70 (F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1523",
+      "sku": "1523",
+      "name": "S140-RE 直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_spc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 140.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1523",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "リレーラーレールS140-RE(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1524",
+      "sku": "1524",
+      "name": "S140-RE PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_spc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 140.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1524",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "リレーラーPCレール S140-RE-PC(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1529",
+      "sku": "1529",
+      "name": "S35-J 直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_spc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 35.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 35.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1529",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ジョイントレールS35-J(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1530",
+      "sku": "1530",
+      "name": "S35-J PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_spc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 35.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 35.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1530",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ジョイントPCレールS35-J-PC(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1671",
+      "sku": "1671",
+      "name": "G70-W 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_spc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1671",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "両ギャップレール G70-W(F)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1425",
+      "sku": "1425",
+      "name": "1425 配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_spc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1425",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "ワイドエンドレールE-WI(F)(2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1811",
+      "sku": "1811",
+      "name": "DS140 复线配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_double",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1811",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_double&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "複線レールDS140(F)(2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1812",
+      "sku": "1812",
+      "name": "DS280 复线配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_double",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1812",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_double&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "複線レールDS280(F)(2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1819",
+      "sku": "1819",
+      "name": "DS1120 复线配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_double",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1819",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_double&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "複線レールDS1120(F)(2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1881-dc317-280-45",
+      "sku": "1881",
+      "name": "DC317-280-45 复线曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_double",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 211.071,
+            "y": 87.429,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 298.5,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1881-dc317-280-45",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_double&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "複線カーブレールDC317・２80-45(F)(2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1882-dc391-354-45",
+      "sku": "1882",
+      "name": "DC391-354-45 复线曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_double",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 263.397,
+            "y": 109.103,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 372.5,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1882-dc391-354-45",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_double&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "複線カーブレールDC391・３54-45(F)(2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1883-dc465-428-45",
+      "sku": "1883",
+      "name": "DC465-428-45 复线曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_double",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 315.723,
+            "y": 130.777,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 446.5,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1883-dc465-428-45",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_double&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "複線カーブレールDC465・４28-45(F)(2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1047",
+      "sku": "1047",
+      "name": "S140-SL 板式直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_slab"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 140.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1047",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_slab&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "スラブレール S140-SL(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1048",
+      "sku": "1048",
+      "name": "S280-SL 板式直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_slab"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 280.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 280.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 18.5,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1048",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_slab&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "スラブレールS280-SL(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1066",
+      "sku": "1066",
+      "name": "DS140-SL 复线板式配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_slab",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1066",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_slab&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "複線スラブレール DS140-SL(F) (2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1067",
+      "sku": "1067",
+      "name": "DS280-SL 复线板式配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_slab",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1067",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_slab&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "複線スラブレール DS280-SL(F) (2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1070",
+      "sku": "1070",
+      "name": "DS1120-SL 复线板式配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_slab",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1070",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_slab&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "複線スラブレール DS1120-SL(F) (2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1168-dc465-428-45",
+      "sku": "1168",
+      "name": "DC465-428-45 复线板式曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_slab",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 315.723,
+            "y": 130.777,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 446.5,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1168-dc465-428-45",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_slab&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "複線スラブカーブレールDC465・428-45-SL(F) (2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1169-dc539-502-22.5",
+      "sku": "1169",
+      "name": "DC539-502-22.5 复线板式曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_slab",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 199.187,
+            "y": 39.621,
+            "z": 0,
+            "yawDeg": 22.5,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 520.5,
+                "angleDeg": 22.5,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1169-dc539-502-22.5",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_slab&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "複線スラブカーブレールDC539・502-22.5-SL(F) (2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1528",
+      "sku": "1528",
+      "name": "V70-WP 宽PC配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_wpc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1528",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "ワイドPCバリアブルレールV70-WP(F)(2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1730",
+      "sku": "1730",
+      "name": "S280-WP 宽PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 280.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 280.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1730",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ワイドPCレールS280-WP(F)(10本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1761",
+      "sku": "1761",
+      "name": "S140-WP 宽PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 140.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1761",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ワイドPCレールS140-WP(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1763",
+      "sku": "1763",
+      "name": "S72.5-WP 宽PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 72.5,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 72.5
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1763",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ワイドPCレールS72.5-WP(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1764",
+      "sku": "1764",
+      "name": "S70-WP 宽PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 70.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 70.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1764",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ワイドPCレールS70-WP(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1735",
+      "sku": "1735",
+      "name": "S99-WP 宽PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 99.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 99.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1735",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ワイドPCレールS99-WP(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1736",
+      "sku": "1736",
+      "name": "S158.5-WP 宽PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 158.5,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 158.5
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1736",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ワイドPCレールS158.5-WP(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1738",
+      "sku": "1738",
+      "name": "S18.5-S 宽PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 18.5,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 18.5
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1738",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ワイドPC端数レールS18.5・S33-WP(F)(各4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1769",
+      "sku": "1769",
+      "name": "S140 宽PC直轨",
+      "kind": "track.straight",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "straight",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "line",
+                "lengthMm": 140.0
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1769",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name.",
+        "originalName": "ワイドPCレールS140WP(F)(ポイント分岐用)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1770",
+      "sku": "1770",
+      "name": "C541-15-WP 宽PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 140.021,
+            "y": 18.434,
+            "z": 0,
+            "yawDeg": 15.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 541.0,
+                "angleDeg": 15.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1770",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "ワイドPCカーブレールC541-15-WP(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1771",
+      "sku": "1771",
+      "name": "C280-45-WP 宽PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 197.99,
+            "y": 82.01,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 280.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1771",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "ワイドPCカーブレールC280-45-WP(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1772",
+      "sku": "1772",
+      "name": "C317-45-WP 宽PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 224.153,
+            "y": 92.847,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 317.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1772",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "ワイドPCカーブレールC317-45-WP(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1773",
+      "sku": "1773",
+      "name": "C354-45-WP 宽PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 250.316,
+            "y": 103.684,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 354.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1773",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "ワイドPCカーブレールC354-45-WP(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1774",
+      "sku": "1774",
+      "name": "C391-45-WP 宽PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 276.479,
+            "y": 114.521,
+            "z": 0,
+            "yawDeg": 45.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 391.0,
+                "angleDeg": 45.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1774",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "ワイドPCカーブレールC391-45-WP(F)(4本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1750",
+      "sku": "1750",
+      "name": "C605-10-WP 宽PC曲轨",
+      "kind": "track.curve",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "curve",
+        "flippable",
+        "rail_wpc",
+        "wide-pc"
+      ],
+      "geometry": {
+        "connectors": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "yawDeg": 180,
+            "profile": "tomix-fine-track"
+          },
+          {
+            "id": "B",
+            "x": 105.057,
+            "y": 9.191,
+            "z": 0,
+            "yawDeg": 10.0,
+            "profile": "tomix-fine-track"
+          }
+        ],
+        "routes": [
+          {
+            "id": "main",
+            "connectorIds": [
+              "A",
+              "B"
+            ],
+            "segments": [
+              {
+                "type": "arc",
+                "radiusMm": 605.0,
+                "angleDeg": 10.0,
+                "direction": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "render": {
+        "railGaugeMm": 9,
+        "roadbedWidthMm": 37,
+        "sleeperSpacingMm": 6
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1750",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "official"
+        }
+      ],
+      "metadata": {
+        "notes": "Geometry parsed from TOMIX product name. Use vertical flip to use the opposite curve direction.",
+        "originalName": "ワイドPCカーブレールC605-10-WP(F)(4本+S70-WP×2本セット)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1781",
+      "sku": "1781",
+      "name": "1781 宽PC配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_wpc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1781",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "ワイドPCアプローチレールCR(L)280-22.5-WP(F)(4本2組)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1782",
+      "sku": "1782",
+      "name": "1782 宽PC配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_wpc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1782",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "ワイドPCアプローチレールCR(L)317-22.5-WP(F)(4本2組)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1783",
+      "sku": "1783",
+      "name": "1783 宽PC配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_wpc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1783",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "ワイドPCアプローチレールCR(L)354-22.5-WP(F)(4本2組)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1784",
+      "sku": "1784",
+      "name": "1784 宽PC配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_wpc",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1784",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "ワイドPCアプローチレールCR(L)391-22.5-WP(F)(4本2組)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1111",
+      "sku": "1111",
+      "name": "C103 迷你超迷你配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_mini",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1111",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_mini&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "スーパーミニカーブレールC103(F)(30゜60゜各2)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1112",
+      "sku": "1112",
+      "name": "C140 迷你配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_mini",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1112",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_mini&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "ミニカーブレールC140(F)(30゜60゜各2)"
+      }
+    },
+    {
+      "id": "tomix.fine-track.1113",
+      "sku": "1113",
+      "name": "C177 迷你配件",
+      "kind": "accessory.structure",
+      "tags": [
+        "tomix",
+        "fine-track",
+        "rail_mini",
+        "rail-related"
+      ],
+      "dimensions": {},
+      "placement": {
+        "anchor": "center",
+        "canAutoGenerate": false
+      },
+      "bom": {
+        "countAs": "tomix.fine-track.1113",
+        "quantity": 1
+      },
+      "sources": [
+        {
+          "url": "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_mini&hyojimode=t",
+          "title": "TOMIX Fine Track official lineup",
+          "retrievedAt": "2026-06-21",
+          "confidence": "unknown"
+        }
+      ],
+      "metadata": {
+        "notes": "Official lineup item. Dimensions were not available on the lineup page and need product-page verification.",
+        "originalName": "ミニカーブレールC177(F)(30゜60゜各2)"
+      }
+    }
+  ],
+  "metadata": {
+    "createdAt": "2026-06-21T00:00:00Z",
+    "updatedAt": "2026-06-21T00:00:00Z",
+    "author": "RailDesign Local MVP fetch_tomix_catalog.py",
+    "notes": "Base standards from TOMIX introduction page: length 140mm, roadbed width 18.5mm, double-track spacing 37mm, reference curve radius 280mm. Product geometry is parsed from product names where possible. Turnouts/accessories need further verification.",
+    "sourcePages": [
+      "https://www.tomytec.co.jp/tomix/nyumon/tomixrail.html",
+      "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_std&hyojimode=t",
+      "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_point&hyojimode=t",
+      "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_spc&hyojimode=t",
+      "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_double&hyojimode=t",
+      "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_slab&hyojimode=t",
+      "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_wpc&hyojimode=t",
+      "https://www.tomytec.co.jp/tomix/nyumon/tomixrail/raillineup.cgi?category=rail_mini&hyojimode=t"
+    ],
+    "fetchedCategories": [
+      {
+        "category": "rail_std",
+        "label": "Basic rails",
+        "count": 47
+      },
+      {
+        "category": "rail_point",
+        "label": "Turnouts",
+        "count": 2
+      },
+      {
+        "category": "rail_spc",
+        "label": "Special rails",
+        "count": 14
+      },
+      {
+        "category": "rail_double",
+        "label": "Double track rails",
+        "count": 6
+      },
+      {
+        "category": "rail_slab",
+        "label": "Slab rails",
+        "count": 7
+      },
+      {
+        "category": "rail_wpc",
+        "label": "Wide PC rails",
+        "count": 21
+      },
+      {
+        "category": "rail_mini",
+        "label": "Super mini and mini curve rails",
+        "count": 3
+      }
+    ]
+  }
+}

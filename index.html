@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RailDesign Local MVP</title>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <h1>RailDesign Local MVP</h1>
+          <p>Catalog / Project Schema · IndexedDB · JSON Import Export</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="newProjectBtn">新项目</button>
+        <button id="saveProjectBtn" class="primary">保存到本地</button>
+        <button id="exportProjectBtn">导出项目 JSON</button>
+        <button id="exportCatalogBtn">导出当前素材库</button>
+        <button id="importJsonBtn">导入 JSON</button>
+        <input id="jsonInput" type="file" accept="application/json,.json" hidden>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="left-panel">
+        <section class="panel-section">
+          <div class="section-head">
+            <h2>素材库</h2>
+            <button id="seedDemoBtn" class="small">重置 Demo</button>
+          </div>
+          <select id="catalogSelect" aria-label="选择素材库"></select>
+          <div id="catalogInfo" class="muted-block"></div>
+          <div id="pieceLibrary" class="piece-library"></div>
+        </section>
+      </aside>
+
+      <section class="canvas-column">
+        <div class="canvas-toolbar">
+          <div class="segmented">
+            <button id="selectModeBtn" class="active">选择 / 移动</button>
+            <button id="fitViewBtn">适配视图</button>
+            <button id="viewRotateLeftBtn">视图左转</button>
+            <button id="viewRotateRightBtn">视图右转</button>
+            <button id="toggle3dBtn">收起 3D</button>
+          </div>
+          <div class="field-row compact">
+            <label>画布宽 <input id="boardWidthInput" type="number" step="50" min="100"></label>
+            <label>画布高 <input id="boardHeightInput" type="number" step="50" min="100"></label>
+            <label>网格 <input id="gridInput" type="number" step="5" min="5"></label>
+          </div>
+        </div>
+        <div id="canvasStack" class="canvas-stack">
+          <div class="canvas-card plan-card">
+            <div class="canvas-title">
+              <strong>2D 规划绘图</strong>
+              <span id="toolHint">选择 / 移动模式</span>
+            </div>
+            <canvas id="planCanvas"></canvas>
+            <div id="planInspector" class="plan-inspector disabled">
+              <div class="inspector-name">
+                <strong id="planInspectorName">未选中部件</strong>
+                <span id="planInspectorHint">单击选择，双击后才能拖动，避免误拆轨道。</span>
+              </div>
+              <label>当前角度 <input id="planYawInput" type="number" step="1" disabled></label>
+              <label>旋转角度 <input id="planStepInput" type="number" step="1" value="15" disabled></label>
+              <label>方向
+                <select id="planRotateDirection" disabled>
+                  <option value="cw">顺时针</option>
+                  <option value="ccw">逆时针</option>
+                </select>
+              </label>
+              <button id="planApplyYawBtn" disabled>应用角度</button>
+              <button id="planRotateStepBtn" disabled>按方向旋转</button>
+              <button id="planFlipHorizontalBtn" disabled>水平翻转</button>
+              <button id="planFlipVerticalBtn" disabled>垂直翻转</button>
+            </div>
+          </div>
+          <div class="canvas-card view-card">
+            <div class="canvas-title">
+              <strong>3D 立体预览</strong>
+              <span>左键旋转 · Shift/右键平移 · 滚轮缩放 · 双击复位</span>
+            </div>
+            <canvas id="viewCanvas"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <aside class="right-panel">
+        <section class="panel-section">
+          <h2>项目</h2>
+          <div class="field-row">
+            <label>名称 <input id="projectNameInput" type="text"></label>
+          </div>
+          <div class="metrics">
+            <div><b id="pieceCount">0</b><span>部件</span></div>
+            <div><b id="trackLength">0.00 m</b><span>轨道总长</span></div>
+          </div>
+          <div id="validationBox" class="validation">尚未加载项目。</div>
+        </section>
+
+        <section class="panel-section">
+          <h2>选中部件</h2>
+          <div id="selectedEmpty" class="muted-block">没有选中部件。</div>
+          <div id="selectedForm" class="selected-form hidden">
+            <div id="selectedName" class="selected-name"></div>
+            <div class="field-grid">
+              <label>X <input id="selX" type="number" step="1"></label>
+              <label>Y <input id="selY" type="number" step="1"></label>
+              <label>Z 起 <input id="selZ" type="number" step="1"></label>
+              <label>Z 终 <input id="selZEnd" type="number" step="1" placeholder="平"></label>
+              <label>角度 <input id="selYaw" type="number" step="1"></label>
+            </div>
+            <div class="button-row">
+              <button id="rotateLeftBtn">左转 15</button>
+              <button id="rotateRightBtn">右转 15</button>
+              <button id="deletePlacementBtn" class="danger">删除</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h2>物料清单</h2>
+          <div id="bomList" class="list"></div>
+        </section>
+
+        <section class="panel-section">
+          <h2>本地项目</h2>
+          <div id="localProjects" class="list"></div>
+          <p id="storageStatus" class="storage-status"></p>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script defer src="https://unpkg.com/dexie@4.0.11/dist/dexie.min.js"></script>
+  <script defer src="vendor/dexie-fallback.js"></script>
+  <script defer src="src/tomix-catalog.js"></script>
+  <script defer src="src/sample-data.js"></script>
+  <script defer src="src/db.js"></script>
+  <script defer src="src/geometry.js"></script>
+  <script defer src="src/spatial.js"></script>
+  <script defer src="src/graph.js"></script>
+  <script defer src="src/planning/collision.js"></script>
+  <script defer src="src/app.js"></script>
+</body>
+</html>

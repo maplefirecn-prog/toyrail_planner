@@ -1,0 +1,106 @@
+{
+  "schema": "raildesign.project.v1",
+  "projectId": "demo-local-layout",
+  "name": "Local MVP Demo Layout",
+  "units": "mm",
+  "board": {
+    "widthMm": 1800,
+    "heightMm": 900,
+    "origin": "center",
+    "gridMm": 20
+  },
+  "catalogRefs": [
+    {
+      "catalogId": "tomix.demo.finetrack.n",
+      "version": "2026.06.21-demo"
+    }
+  ],
+  "view": {
+    "camera2d": { "x": 160, "y": 80, "zoom": 0.9, "rotationDeg": 0 },
+    "camera3d": { "yawDeg": -40, "pitchDeg": 48, "distanceMm": 1400 }
+  },
+  "layers": [
+    { "id": "base", "name": "Base Layout", "visible": true, "locked": false }
+  ],
+  "placements": [
+    {
+      "id": "p1",
+      "pieceId": "tomix.demo.s140",
+      "x": -280,
+      "y": 0,
+      "z": 0,
+      "yawDeg": 0,
+      "layerId": "base",
+      "locked": false
+    },
+    {
+      "id": "p2",
+      "pieceId": "tomix.demo.s140",
+      "x": -140,
+      "y": 0,
+      "z": 0,
+      "yawDeg": 0,
+      "layerId": "base",
+      "locked": false
+    },
+    {
+      "id": "p3",
+      "pieceId": "tomix.demo.c280-45l",
+      "x": 0,
+      "y": 0,
+      "z": 55,
+      "yawDeg": 0,
+      "layerId": "base",
+      "locked": false
+    },
+    {
+      "id": "p4",
+      "pieceId": "tomix.demo.c280-45l",
+      "x": 197.99,
+      "y": 82.01,
+      "z": 55,
+      "yawDeg": 45,
+      "layerId": "base",
+      "locked": false
+    },
+    {
+      "id": "p5",
+      "pieceId": "tomix.demo.turnout-r",
+      "x": -420,
+      "y": -120,
+      "z": 0,
+      "yawDeg": 12,
+      "layerId": "base",
+      "locked": false
+    },
+    {
+      "id": "p6",
+      "pieceId": "tomix.demo.support-55",
+      "x": 70,
+      "y": 44,
+      "z": 0,
+      "yawDeg": 0,
+      "layerId": "base",
+      "locked": false
+    }
+  ],
+  "connections": [
+    {
+      "from": { "placementId": "p1", "connectorId": "B" },
+      "to": { "placementId": "p2", "connectorId": "A" }
+    },
+    {
+      "from": { "placementId": "p2", "connectorId": "B" },
+      "to": { "placementId": "p3", "connectorId": "A" }
+    },
+    {
+      "from": { "placementId": "p3", "connectorId": "B" },
+      "to": { "placementId": "p4", "connectorId": "A" }
+    }
+  ],
+  "metadata": {
+    "createdAt": "2026-06-21T00:00:00Z",
+    "updatedAt": "2026-06-21T00:00:00Z",
+    "notes": "Demo layout for validating schema import/export and local persistence."
+  }
+}

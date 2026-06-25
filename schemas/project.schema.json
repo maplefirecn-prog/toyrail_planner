@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raildesign.local/schemas/project.schema.json",
+  "title": "RailDesign Project",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "projectId",
+    "name",
+    "units",
+    "board",
+    "catalogRefs",
+    "placements",
+    "connections"
+  ],
+  "properties": {
+    "schema": { "const": "raildesign.project.v1" },
+    "projectId": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "units": { "const": "mm" },
+    "board": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["widthMm", "heightMm", "origin"],
+      "properties": {
+        "widthMm": { "type": "number", "exclusiveMinimum": 0 },
+        "heightMm": { "type": "number", "exclusiveMinimum": 0 },
+        "origin": { "enum": ["center", "top-left"] },
+        "gridMm": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "catalogRefs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["catalogId", "version"],
+        "properties": {
+          "catalogId": { "type": "string" },
+          "version": { "type": "string" }
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "camera2d": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" },
+            "zoom": { "type": "number", "exclusiveMinimum": 0 },
+            "rotationDeg": { "type": "number" }
+          }
+        },
+        "camera3d": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "yawDeg": { "type": "number" },
+            "pitchDeg": { "type": "number" },
+            "distanceMm": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        }
+      }
+    },
+    "layers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/layer" }
+    },
+    "placements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/placement" }
+    },
+    "connections": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/connection" }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "author": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    }
+  },
+  "$defs": {
+    "layer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "visible", "locked"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]+$"
+        },
+        "name": { "type": "string", "minLength": 1 },
+        "visible": { "type": "boolean" },
+        "locked": { "type": "boolean" }
+      }
+    },
+    "placement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "pieceId", "x", "y", "z", "yawDeg"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+        },
+        "pieceId": { "type": "string" },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" },
+        "zEnd": { "type": "number" },
+        "yawDeg": { "type": "number" },
+        "flipX": { "type": "boolean" },
+        "flipY": { "type": "boolean" },
+        "layerId": { "type": "string" },
+        "locked": { "type": "boolean" },
+        "properties": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "connectorRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["placementId", "connectorId"],
+      "properties": {
+        "placementId": { "type": "string" },
+        "connectorId": { "type": "string" }
+      }
+    },
+    "connection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to"],
+      "properties": {
+        "from": { "$ref": "#/$defs/connectorRef" },
+        "to": { "$ref": "#/$defs/connectorRef" },
+        "locked": { "type": "boolean" }
+      }
+    }
+  }
+}

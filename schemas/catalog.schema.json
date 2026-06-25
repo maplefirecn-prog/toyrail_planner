@@ -1,0 +1,291 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raildesign.local/schemas/catalog.schema.json",
+  "title": "RailDesign Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "catalogId",
+    "version",
+    "units",
+    "manufacturer",
+    "productLine",
+    "scale",
+    "gaugeMm",
+    "connectorProfiles",
+    "pieces"
+  ],
+  "properties": {
+    "schema": { "const": "raildesign.catalog.v1" },
+    "catalogId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "version": { "type": "string", "minLength": 1 },
+    "units": { "const": "mm" },
+    "manufacturer": { "type": "string", "minLength": 1 },
+    "productLine": { "type": "string", "minLength": 1 },
+    "scale": { "type": "string", "minLength": 1 },
+    "gaugeMm": { "type": "number", "exclusiveMinimum": 0 },
+    "description": { "type": "string" },
+    "connectorProfiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/connectorProfile" }
+    },
+    "pieces": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/piece" }
+    },
+    "metadata": { "$ref": "#/$defs/metadata" }
+  },
+  "$defs": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "author": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "connectorProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "compatibleWith"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "name": { "type": "string", "minLength": 1 },
+        "compatibleWith": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "title", "retrievedAt", "confidence"],
+      "properties": {
+        "url": { "type": "string" },
+        "title": { "type": "string" },
+        "retrievedAt": { "type": "string" },
+        "confidence": {
+          "enum": ["official", "secondary", "measured", "estimated", "unknown"]
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "connector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "x", "y", "z", "yawDeg", "profile"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" },
+        "yawDeg": { "type": "number" },
+        "profile": { "type": "string" },
+        "label": { "type": "string" }
+      }
+    },
+    "lineSegment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "lengthMm"],
+      "properties": {
+        "type": { "const": "line" },
+        "lengthMm": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "arcSegment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "radiusMm", "angleDeg", "direction"],
+      "properties": {
+        "type": { "const": "arc" },
+        "radiusMm": { "type": "number", "exclusiveMinimum": 0 },
+        "angleDeg": { "type": "number" },
+        "direction": { "enum": ["left", "right"] }
+      }
+    },
+    "polylineSegment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "points"],
+      "properties": {
+        "type": { "const": "polyline" },
+        "points": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/point2" }
+        }
+      }
+    },
+    "point2": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      }
+    },
+    "segment": {
+      "oneOf": [
+        { "$ref": "#/$defs/lineSegment" },
+        { "$ref": "#/$defs/arcSegment" },
+        { "$ref": "#/$defs/polylineSegment" }
+      ]
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "connectorIds", "segments"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "connectorIds": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "string" }
+        },
+        "segments": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/segment" }
+        },
+        "label": { "type": "string" }
+      }
+    },
+    "trackGeometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["connectors", "routes"],
+      "properties": {
+        "connectors": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/connector" }
+        },
+        "routes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/route" }
+        }
+      }
+    },
+    "render": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "railGaugeMm": { "type": "number", "exclusiveMinimum": 0 },
+        "roadbedWidthMm": { "type": "number", "exclusiveMinimum": 0 },
+        "sleeperSpacingMm": { "type": "number", "exclusiveMinimum": 0 },
+        "color": { "type": "string" }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "widthMm": { "type": "number", "exclusiveMinimum": 0 },
+        "depthMm": { "type": "number", "exclusiveMinimum": 0 },
+        "heightMm": { "type": "number", "exclusiveMinimum": 0 },
+        "lengthMm": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "placementRule": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "anchor": { "enum": ["center", "connector", "free"] },
+        "canAutoGenerate": { "type": "boolean" },
+        "supportsElevationMm": {
+          "type": "array",
+          "items": { "type": "number" }
+        },
+        "defaultSpacingMm": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "bom": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "countAs": { "type": "string" },
+        "quantity": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "piece": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "sku", "name", "kind"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "sku": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "kind": {
+          "enum": [
+            "track.straight",
+            "track.curve",
+            "track.turnout",
+            "track.crossing",
+            "track.flex",
+            "accessory.support",
+            "accessory.structure",
+            "accessory.scenery"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "geometry": { "$ref": "#/$defs/trackGeometry" },
+        "dimensions": { "$ref": "#/$defs/dimensions" },
+        "placement": { "$ref": "#/$defs/placementRule" },
+        "render": { "$ref": "#/$defs/render" },
+        "bom": { "$ref": "#/$defs/bom" },
+        "sources": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/source" }
+        },
+        "metadata": { "$ref": "#/$defs/metadata" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": { "pattern": "^track\\." }
+            }
+          },
+          "then": { "required": ["geometry"] }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": { "pattern": "^accessory\\." }
+            }
+          },
+          "then": { "required": ["dimensions"] }
+        }
+      ]
+    }
+  }
+}
