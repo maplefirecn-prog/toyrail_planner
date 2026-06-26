@@ -15,6 +15,10 @@
     snap: null,
     drag: null,
     movePlacementId: null,
+    placementSession: null,
+    fixedStart: null,
+    startPickMode: false,
+    lastCommitAt: 0,
     autoConnectSnap: null,
     show3d: true,
     view3d: { yawDeg: 0, tilt: 0.55, zoom: 1, panX: 0, panY: 0, drag: null },
@@ -49,6 +53,13 @@
 
   function selectedPiece() {
     return G.getPiece(state.index, state.selectedPieceId);
+  }
+
+  function activePlacementPiece() {
+    if (state.placementSession && state.placementSession.pieceId) {
+      return G.getPiece(state.index, state.placementSession.pieceId);
+    }
+    return selectedPiece();
   }
 
   function selectedPlacementPiece() {
@@ -113,6 +124,9 @@
       "catalogInfo",
       "pieceLibrary",
       "selectModeBtn",
+      "setStartPointBtn",
+      "clearStartPointBtn",
+      "fixedStartStatus",
       "fitViewBtn",
       "viewRotateLeftBtn",
       "viewRotateRightBtn",
@@ -175,6 +189,8 @@
       renderAll();
     });
     els.selectModeBtn.addEventListener("click", function () { setMode("select"); });
+    els.setStartPointBtn.addEventListener("click", beginStartPickMode);
+    els.clearStartPointBtn.addEventListener("click", clearFixedStart);
     els.fitViewBtn.addEventListener("click", fitView);
     els.viewRotateLeftBtn.addEventListener("click", function () { rotateView(-15); });
     els.viewRotateRightBtn.addEventListener("click", function () { rotateView(15); });
@@ -258,6 +274,9 @@
     state.project = clone(Sample.project);
     G.clearGeometryCache();
     state.selectedPlacementId = null;
+    state.fixedStart = null;
+    state.startPickMode = false;
+    clearPlacementSession();
     rebuildIndex();
     fitView();
     renderAll();
@@ -318,6 +337,9 @@
     G.clearGeometryCache();
     state.selectedPlacementId = null;
     state.selectedPieceId = null;
+    state.fixedStart = null;
+    state.startPickMode = false;
+    clearPlacementSession();
     setMode("select");
     fitView();
     renderAll();
@@ -333,23 +355,36 @@
   }
 
   function setMode(mode) {
+    if (mode === "select") {
+      cancelPlacementSession({ silent: true });
+      state.startPickMode = false;
+    }
     state.mode = mode;
     state.snap = null;
     if (mode !== "select") state.movePlacementId = null;
     state.autoConnectSnap = null;
     els.selectModeBtn.classList.toggle("active", mode === "select");
+    if (els.setStartPointBtn) els.setStartPointBtn.classList.toggle("active", state.startPickMode);
+    updateFixedStartStatus();
     let hint;
-    if (mode === "place" && selectedPiece()) hint = "放置：" + selectedPiece().name;
-    else hint = "选择 / 移动模式（双击轨道解锁后可拖动，靠近开放端自动吸附连接）";
+    const piece = activePlacementPiece();
+    if (state.placementSession && state.placementSession.kind === "move") {
+      hint = "移动：轨道已粘到鼠标，单击/双击确认，Esc 取消";
+    } else if (state.startPickMode) {
+      hint = "设置起点：点击开放端点，或点击空白处作为任意起点";
+    } else if (state.fixedStart) {
+      hint = "已设置起点：从素材库选择轨道即可从起点继续延展";
+    } else if (mode === "place" && piece) {
+      hint = "放置：" + piece.name + "（单击放置，Esc/选择退出；靠近开放端自动连接）";
+    } else {
+      hint = "选择 / 移动模式（双击轨道后会粘到鼠标，靠近开放端自动吸附连接）";
+    }
     els.toolHint.textContent = hint;
     queueRender();
   }
 
   function choosePiece(pieceId) {
-    state.selectedPieceId = pieceId;
-    state.selectedPlacementId = null;
-    state.mode = "place";
-    setMode("place");
+    beginLibraryPlacement(pieceId);
   }
 
   function updateBoardFromInputs() {
@@ -455,6 +490,320 @@
     });
   }
 
+  function placementConnections(placementId) {
+    return (state.project.connections || []).filter(function (connection) {
+      return connection.from.placementId === placementId || connection.to.placementId === placementId;
+    });
+  }
+
+  function beginLibraryPlacement(pieceId) {
+    const piece = G.getPiece(state.index, pieceId);
+    if (!piece) return;
+    cancelPlacementSession({ silent: true });
+    state.startPickMode = false;
+    state.selectedPieceId = pieceId;
+    state.selectedPlacementId = null;
+    state.placementSession = {
+      kind: "new",
+      pieceId: pieceId,
+      placementId: null,
+      sourcePlacement: null,
+      removedConnections: [],
+      offset: null,
+      repeat: false
+    };
+    state.mode = "place";
+    state.snap = null;
+    state.autoConnectSnap = null;
+    els.selectModeBtn.classList.toggle("active", false);
+    updateSnapPreview();
+    updateFixedStartStatus();
+    if (state.fixedStart && hasTrackConnectors(piece)) {
+      const point = state.fixedStart.type === "point"
+        ? { x: state.fixedStart.point.x + 1, y: state.fixedStart.point.y, z: state.fixedStart.point.z || 0 }
+        : (state.pointerWorld || state.fixedStart.point);
+      commitPlacementSession(point);
+      return;
+    }
+    els.toolHint.textContent = "放置：" + piece.name + "（单击放置，Esc/选择退出；靠近开放端自动连接）";
+    queueRender();
+  }
+
+  function beginMovePlacementSticky(placement, point) {
+    const piece = G.getPiece(state.index, placement.pieceId);
+    if (!piece) return;
+    cancelPlacementSession({ silent: true });
+    const removedConnections = placementConnections(placement.id).map(clone);
+    detachPlacement(placement.id);
+    G.invalidatePlacementGeometry(placement.id);
+    state.selectedPlacementId = placement.id;
+    state.selectedPieceId = null;
+    state.movePlacementId = null;
+    state.mode = "place";
+    els.selectModeBtn.classList.toggle("active", false);
+    state.placementSession = {
+      kind: "move",
+      pieceId: placement.pieceId,
+      placementId: placement.id,
+      sourcePlacement: clone(placement),
+      removedConnections: removedConnections,
+      offset: { x: placement.x - point.x, y: placement.y - point.y },
+      repeat: false
+    };
+    state.autoConnectSnap = computeAutoConnectSnap(placement);
+    markDirty();
+    setStatus("轨道已粘到鼠标：移动预览，单击或双击确认，Esc 取消。");
+    els.toolHint.textContent = "移动：轨道已粘到鼠标，单击/双击确认，Esc 取消";
+    queueRender();
+  }
+
+  function clearPlacementSession() {
+    state.placementSession = null;
+    state.snap = null;
+    state.autoConnectSnap = null;
+    state.movePlacementId = null;
+  }
+
+  function cancelPlacementSession(options) {
+    const opts = options || {};
+    const session = state.placementSession;
+    if (session && session.kind === "move") {
+      const placement = state.project.placements.find(function (item) { return item.id === session.placementId; });
+      if (placement && session.sourcePlacement) {
+        G.invalidatePlacementGeometry(placement.id);
+        Object.keys(placement).forEach(function (key) { delete placement[key]; });
+        Object.assign(placement, clone(session.sourcePlacement));
+      }
+      if (session.removedConnections && session.removedConnections.length) {
+        state.project.connections = (state.project.connections || []).filter(function (connection) {
+          return connection.from.placementId !== session.placementId && connection.to.placementId !== session.placementId;
+        }).concat(session.removedConnections.map(clone));
+      }
+      markDirty();
+      if (!opts.silent) setStatus("已取消移动，并恢复轨道原位置与连接。");
+    }
+    clearPlacementSession();
+    if (!opts.keepSelection) state.selectedPieceId = null;
+    state.mode = "select";
+    updateFixedStartStatus();
+  }
+
+  function commitPlacementSession(point) {
+    const session = state.placementSession;
+    if (!session) return;
+    if (session.kind === "move") {
+      const placement = state.project.placements.find(function (item) { return item.id === session.placementId; });
+      if (placement) {
+        state.selectedPlacementId = placement.id;
+        state.autoConnectSnap = computeAutoConnectSnap(placement);
+        const hadSnap = Boolean(state.autoConnectSnap);
+        const connected = finalizeAutoConnect({ startPlacement: session.sourcePlacement });
+        if (hadSnap && !connected && session.removedConnections && session.removedConnections.length) {
+          state.project.connections = (state.project.connections || []).filter(function (connection) {
+            return connection.from.placementId !== session.placementId && connection.to.placementId !== session.placementId;
+          }).concat(session.removedConnections.map(clone));
+          if (placement && session.sourcePlacement) {
+            G.invalidatePlacementGeometry(placement.id);
+            Object.keys(placement).forEach(function (key) { delete placement[key]; });
+            Object.assign(placement, clone(session.sourcePlacement));
+          }
+        }
+        markDirty();
+        if (!hadSnap) setStatus("已固定移动轨道。");
+      }
+      clearPlacementSession();
+      state.selectedPieceId = null;
+      state.mode = "select";
+      setMode("select");
+      state.lastCommitAt = Date.now();
+      return;
+    }
+
+    const candidate = candidatePlacementFor(point);
+    if (!candidate || !isCandidateConnectionSafe(candidate)) return;
+    if (candidateHasCollision(candidate)) {
+      setStatus("放置取消：连接后会与其他轨道冲突，请换个位置或起点。");
+      return;
+    }
+    state.project.placements.push(candidate.placement);
+    if (candidate.connection) state.project.connections.push(candidate.connection);
+    ensureProjectRefsForPiece(candidate.placement.pieceId);
+    state.selectedPlacementId = candidate.placement.id;
+    markDirty();
+    const advancedStart = Boolean(state.fixedStart && candidate.sourceConnectorId);
+    advanceFixedStartFromCandidate(candidate);
+    clearPlacementSession();
+    state.selectedPieceId = null;
+    state.mode = "select";
+    setMode("select");
+    if (candidate.connection) {
+      setStatus(advancedStart
+        ? "已放置并连接。继续选择轨道可从当前起点延展。"
+        : "已放置并连接。");
+    } else {
+      setStatus(advancedStart
+        ? "已从起点放置轨道。继续选择轨道可从当前起点延展。"
+        : "已放置轨道。");
+    }
+    state.lastCommitAt = Date.now();
+    queueRender();
+  }
+
+  function beginStartPickMode() {
+    cancelPlacementSession({ silent: true });
+    state.startPickMode = true;
+    state.mode = "select";
+    state.selectedPieceId = null;
+    state.snap = null;
+    state.autoConnectSnap = null;
+    setStatus("设置起点：点击开放端点作为连接起点，或点击空白处作为任意起点。");
+    updateFixedStartStatus();
+    els.toolHint.textContent = "设置起点：点击开放端点，或点击空白处作为任意起点";
+    queueRender();
+  }
+
+  function clearFixedStart() {
+    state.fixedStart = null;
+    state.startPickMode = false;
+    updateFixedStartStatus();
+    setStatus("已清除固定起点。");
+    queueRender();
+  }
+
+  function updateFixedStartStatus() {
+    if (!els.fixedStartStatus) return;
+    if (els.setStartPointBtn) els.setStartPointBtn.classList.toggle("active", Boolean(state.startPickMode));
+    if (!state.fixedStart) {
+      els.fixedStartStatus.textContent = "起点：未设置";
+      return;
+    }
+    if (state.fixedStart.type === "connector" && state.fixedStart.connector) {
+      els.fixedStartStatus.textContent = "起点：开放端 " + state.fixedStart.connector.placementId + ":" + state.fixedStart.connector.connectorId;
+      return;
+    }
+    els.fixedStartStatus.textContent = "起点：任意点 " + Math.round(state.fixedStart.point.x) + ", " + Math.round(state.fixedStart.point.y);
+  }
+
+  function pickFixedStart(point) {
+    const nearest = nearestConnector(point, { thresholdMm: Math.max(28, 24 / camera().zoom) });
+    if (nearest) {
+      const key = G.connectorKey({ placementId: nearest.connector.placementId, connectorId: nearest.connector.connectorId });
+      if (frameOpenConnectorKeys().has(key)) {
+        state.fixedStart = {
+          type: "connector",
+          point: { x: nearest.connector.x, y: nearest.connector.y, z: nearest.connector.z || 0 },
+          connector: cloneConnector(nearest.connector)
+        };
+        setStatus("已将开放端点设为起点：" + nearest.connector.placementId + ":" + nearest.connector.connectorId + "。");
+      } else {
+        state.fixedStart = {
+          type: "point",
+          point: { x: nearest.connector.x, y: nearest.connector.y, z: nearest.connector.z || 0 },
+          connector: null
+        };
+        setStatus("该端点已连接，已作为几何起点使用，不会创建重复连接。");
+      }
+    } else {
+      state.fixedStart = { type: "point", point: { x: point.x, y: point.y, z: 0 }, connector: null };
+      setStatus("已设置任意起点：" + Math.round(point.x) + ", " + Math.round(point.y) + "。");
+    }
+    state.startPickMode = false;
+    updateFixedStartStatus();
+    queueRender();
+  }
+
+  function cloneConnector(connector) {
+    return {
+      placementId: connector.placementId,
+      connectorId: connector.connectorId,
+      profile: connector.profile,
+      x: connector.x,
+      y: connector.y,
+      z: connector.z || 0,
+      yawDeg: connector.yawDeg || 0
+    };
+  }
+
+  function nearestConnector(point, options) {
+    const opts = options || {};
+    const threshold = opts.thresholdMm || 28;
+    let best = null;
+    frameAllConnectors().forEach(function (connector) {
+      const distance = Math.hypot(connector.x - point.x, connector.y - point.y);
+      if (distance <= threshold && (!best || distance < best.distance)) {
+        best = { connector, distance };
+      }
+    });
+    return best;
+  }
+
+  function advanceFixedStartFromCandidate(candidate) {
+    if (!state.fixedStart || !candidate || !candidate.placement || !candidate.sourceConnectorId) return;
+    const piece = G.getPiece(state.index, candidate.placement.pieceId);
+    if (!piece || !piece.geometry) return;
+    const connected = G.connectedKeySet(state.project);
+    const connectors = G.placementConnectors(candidate.placement, piece).filter(function (connector) {
+      if (connector.connectorId === candidate.sourceConnectorId) return false;
+      return !connected.has(G.connectorKey({ placementId: connector.placementId, connectorId: connector.connectorId }));
+    });
+    if (!connectors.length) return;
+    const sourceConnector = G.placementConnectors(candidate.placement, piece).find(function (connector) {
+      return connector.connectorId === candidate.sourceConnectorId;
+    });
+    const next = connectors.sort(function (a, b) {
+      if (!sourceConnector) return 0;
+      const da = Math.hypot(a.x - sourceConnector.x, a.y - sourceConnector.y);
+      const db = Math.hypot(b.x - sourceConnector.x, b.y - sourceConnector.y);
+      return db - da;
+    })[0];
+    state.fixedStart = {
+      type: "connector",
+      point: { x: next.x, y: next.y, z: next.z || 0 },
+      connector: cloneConnector(next)
+    };
+    updateFixedStartStatus();
+  }
+
+  function isCandidateConnectionSafe(candidate) {
+    if (!candidate.connection) return true;
+    const connection = candidate.connection;
+    const target = frameAllConnectors().find(function (connector) {
+      return connector.placementId === connection.to.placementId && connector.connectorId === connection.to.connectorId;
+    });
+    if (!target) {
+      setStatus("放置取消：目标端点已不存在。");
+      return false;
+    }
+    const targetKey = G.connectorKey(connection.to);
+    if (!frameOpenConnectorKeys().has(targetKey)) {
+      setStatus("放置取消：目标端点已被连接，请重新设置起点或换一个端点。");
+      return false;
+    }
+    const piece = G.getPiece(state.index, candidate.placement.pieceId);
+    const source = piece && piece.geometry && piece.geometry.connectors.find(function (connector) {
+      return connector.id === connection.from.connectorId;
+    });
+    if (source && !G.isCompatible(source.profile, target.profile, state.catalogs)) {
+      setStatus("放置取消：接口 profile 不兼容。");
+      return false;
+    }
+    return true;
+  }
+
+  function candidateHasCollision(candidate) {
+    if (!candidate.connection || !window.RailPlanning || !window.RailPlanning.detectCollisions) return false;
+    const testProject = Object.assign({}, state.project, {
+      placements: (state.project.placements || []).concat([candidate.placement]),
+      connections: (state.project.connections || []).concat([candidate.connection])
+    });
+    const overlaps = window.RailPlanning.detectCollisions(testProject, state.index, { clearanceMm: 2 });
+    return overlaps.some(function (collision) {
+      if (!(collision.a === candidate.placement.id || collision.b === candidate.placement.id)) return false;
+      const otherId = collision.a === candidate.placement.id ? collision.b : collision.a;
+      return !candidate.connection || otherId !== candidate.connection.to.placementId;
+    });
+  }
+
   function canvasSize(canvas) {
     return {
       width: canvas.clientWidth || canvas.getBoundingClientRect().width,
@@ -529,6 +878,21 @@
       return;
     }
 
+    if (state.placementSession && state.placementSession.kind === "move") {
+      const placement = state.project.placements.find(function (item) {
+        return item.id === state.placementSession.placementId;
+      });
+      if (placement) {
+        G.invalidatePlacementGeometry(placement.id);
+        placement.x = point.x + state.placementSession.offset.x;
+        placement.y = point.y + state.placementSession.offset.y;
+        state.autoConnectSnap = computeAutoConnectSnap(placement);
+        markDirty();
+        queueRender();
+      }
+      return;
+    }
+
     if (state.drag && state.drag.kind === "move") {
       const placement = selectedPlacement();
       if (placement) {
@@ -539,6 +903,12 @@
         markDirty();
         queueRender();
       }
+      return;
+    }
+
+    if (state.startPickMode) {
+      state.snap = null;
+      queueRender();
       return;
     }
 
@@ -572,12 +942,14 @@
 
   function finalizeAutoConnect(drag) {
     const placement = selectedPlacement();
-    if (!placement || !state.autoConnectSnap) { state.autoConnectSnap = null; return; }
+    if (!placement || !state.autoConnectSnap) { state.autoConnectSnap = null; return false; }
     const piece = G.getPiece(state.index, placement.pieceId);
     const snap = state.autoConnectSnap;
     state.autoConnectSnap = null;
     const aligned = G.alignConnectorToTarget(piece, snap.draggedConn.connectorId, snap.target);
-    const original = { x: placement.x, y: placement.y, z: placement.z, yawDeg: placement.yawDeg };
+    const original = drag && drag.startPlacement
+      ? { x: drag.startPlacement.x, y: drag.startPlacement.y, z: drag.startPlacement.z || 0, yawDeg: drag.startPlacement.yawDeg || 0 }
+      : { x: placement.x, y: placement.y, z: placement.z, yawDeg: placement.yawDeg };
     G.invalidatePlacementGeometry(placement.id);
     placement.x = aligned.x;
     placement.y = aligned.y;
@@ -600,7 +972,7 @@
         placement.yawDeg = original.yawDeg;
         setStatus("自动连接取消：对准后与其他轨道冲突，请先挪开附近轨道再试。");
         queueRender();
-        return;
+        return false;
       }
     }
     state.project.connections.push({
@@ -611,12 +983,30 @@
     markDirty();
     setStatus("已自动连接并对准角度：" + snap.draggedConn.connectorId + " → " + snap.target.placementId + ":" + snap.target.connectorId + "。");
     queueRender();
+    return true;
   }
 
   function onPlanPointerDown(event) {
     const point = eventWorld(event);
     state.pointerWorld = point;
-    els.planCanvas.setPointerCapture(event.pointerId);
+    try {
+      els.planCanvas.setPointerCapture(event.pointerId);
+    } catch (error) {
+      // Synthetic tests and some cancelled pointer streams do not have an active
+      // pointer to capture; the interaction still works without capture.
+    }
+
+    if (state.startPickMode) {
+      pickFixedStart(point);
+      return;
+    }
+
+    if (state.placementSession) {
+      if (event.button && event.button !== 0) return;
+      if (event.detail && event.detail > 1 && state.placementSession.kind !== "move") return;
+      commitPlacementSession(point);
+      return;
+    }
 
     if (state.mode === "place" && selectedPiece()) {
       placeSelectedPiece(point);
@@ -666,13 +1056,14 @@
 
   function onPlanDoubleClick(event) {
     const point = eventWorld(event);
+    if (Date.now() - state.lastCommitAt < 350) return;
+    if (state.placementSession && state.placementSession.kind === "move") {
+      commitPlacementSession(point);
+      return;
+    }
     const hit = hitTestPlacement(point, Math.max(12, 14 / camera().zoom));
     if (!hit) return;
-    state.selectedPlacementId = hit.id;
-    state.selectedPieceId = null;
-    state.movePlacementId = hit.id;
-    setStatus("移动已解锁：按住选中部件拖动，松开后自动锁定。");
-    queueRender();
+    beginMovePlacementSticky(hit, point);
   }
 
   function onPlanWheel(event) {
@@ -690,11 +1081,25 @@
   function onKeyDown(event) {
     if (["INPUT", "SELECT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
     if (event.key === "Escape") {
+      if (state.startPickMode) {
+        state.startPickMode = false;
+        updateFixedStartStatus();
+        setStatus("已取消设置起点。");
+        setMode("select");
+        event.preventDefault();
+        return;
+      }
+      if (state.placementSession) {
+        cancelPlacementSession();
+        queueRender();
+        event.preventDefault();
+        return;
+      }
       state.selectedPieceId = null;
       state.movePlacementId = null;
       setMode("select");
     }
-    if (event.key === "Delete" || event.key === "Backspace") deleteSelectedPlacement();
+    if ((event.key === "Delete" || event.key === "Backspace") && !state.placementSession && !state.startPickMode) deleteSelectedPlacement();
     if (event.key.toLowerCase() === "q") rotateSelected(-15);
     if (event.key.toLowerCase() === "e") rotateSelected(15);
   }
@@ -744,7 +1149,8 @@
   function updateSnapPreview() {
     state.snap = null;
     if (state.mode !== "place" || !state.pointerWorld) return;
-    const piece = selectedPiece();
+    if (state.fixedStart && state.fixedStart.type === "connector") return;
+    const piece = activePlacementPiece();
     if (!hasTrackConnectors(piece)) return;
     const source = piece.geometry.connectors[0];
     state.snap = nearestSnapConnector(state.pointerWorld, {
@@ -753,45 +1159,100 @@
     });
   }
 
+  function connectorStillOpen(connector) {
+    if (!connector) return false;
+    return frameOpenConnectorKeys().has(G.connectorKey({
+      placementId: connector.placementId,
+      connectorId: connector.connectorId
+    }));
+  }
+
+  function compatibleSourceConnectors(piece, targetConnector) {
+    return (piece.geometry.connectors || []).filter(function (source) {
+      return !targetConnector.profile || G.isCompatible(source.profile, targetConnector.profile, state.catalogs);
+    });
+  }
+
+  function bestAlignedCandidate(piece, id, point, targetConnector) {
+    const sources = compatibleSourceConnectors(piece, targetConnector);
+    if (!sources.length) return null;
+    const candidates = sources.map(function (source) {
+      const aligned = G.alignConnectorToTarget(piece, source.id, targetConnector);
+      return {
+        source,
+        aligned,
+        distance: Math.hypot(aligned.x - point.x, aligned.y - point.y)
+      };
+    }).sort(function (a, b) {
+      return a.distance - b.distance;
+    });
+    const best = candidates[0];
+    return {
+      placement: {
+        id,
+        pieceId: piece.id,
+        x: best.aligned.x,
+        y: best.aligned.y,
+        z: best.aligned.z,
+        yawDeg: best.aligned.yawDeg,
+        layerId: "base",
+        locked: false
+      },
+      sourceConnectorId: best.source.id,
+      targetConnector
+    };
+  }
+
   function candidatePlacementFor(point) {
-    const piece = selectedPiece();
+    const piece = activePlacementPiece();
     const id = G.makeId("pl");
     if (!piece) return null;
 
     if (hasTrackConnectors(piece)) {
+      if (state.fixedStart && state.fixedStart.type === "connector" && connectorStillOpen(state.fixedStart.connector)) {
+        const anchored = bestAlignedCandidate(piece, id, point, state.fixedStart.connector);
+        if (anchored) {
+          anchored.connection = {
+            from: { placementId: id, connectorId: anchored.sourceConnectorId },
+            to: {
+              placementId: state.fixedStart.connector.placementId,
+              connectorId: state.fixedStart.connector.connectorId
+            }
+          };
+          return anchored;
+        }
+      }
+
       updateSnapPreview();
       if (state.snap) {
-        const candidates = piece.geometry.connectors.map(function (source) {
-          const aligned = G.alignConnectorToTarget(piece, source.id, state.snap.connector);
-          return {
-            source,
-            aligned,
-            distance: Math.hypot(aligned.x - point.x, aligned.y - point.y)
-          };
-        }).sort(function (a, b) {
-          return a.distance - b.distance;
-        });
-        const best = candidates[0];
-        return {
-          placement: {
-            id,
-            pieceId: piece.id,
-            x: best.aligned.x,
-            y: best.aligned.y,
-            z: best.aligned.z,
-            yawDeg: best.aligned.yawDeg,
-            layerId: "base",
-            locked: false
-          },
-          connection: {
-            from: { placementId: id, connectorId: best.source.id },
+        const snapped = bestAlignedCandidate(piece, id, point, state.snap.connector);
+        if (snapped) {
+          snapped.connection = {
+            from: { placementId: id, connectorId: snapped.sourceConnectorId },
             to: {
               placementId: state.snap.connector.placementId,
               connectorId: state.snap.connector.connectorId
             }
-          },
-          sourceConnectorId: best.source.id
+          };
+          return snapped;
+        }
+      }
+
+      if (state.fixedStart && state.fixedStart.type === "point") {
+        const start = state.fixedStart.point;
+        const yawDeg = G.normalizeDeg(G.radToDeg(Math.atan2(point.y - start.y, point.x - start.x)));
+        const target = {
+          x: start.x,
+          y: start.y,
+          z: start.z || 0,
+          yawDeg,
+          profile: piece.geometry.connectors[0].profile
         };
+        const anchoredPoint = bestAlignedCandidate(piece, id, point, target);
+        if (anchoredPoint) {
+          anchoredPoint.connection = null;
+          return anchoredPoint;
+        }
       }
     }
 
@@ -811,16 +1272,8 @@
   }
 
   function placeSelectedPiece(point) {
-    const candidate = candidatePlacementFor(point);
-    if (!candidate) return;
-    state.project.placements.push(candidate.placement);
-    if (candidate.connection) state.project.connections.push(candidate.connection);
-    ensureProjectRefsForPiece(candidate.placement.pieceId);
-    state.selectedPlacementId = candidate.placement.id;
-    state.selectedPieceId = null;
-    setMode("select");
-    markDirty();
-    queueRender();
+    if (!state.placementSession && state.selectedPieceId) beginLibraryPlacement(state.selectedPieceId);
+    commitPlacementSession(point);
   }
 
   function ensureProjectRefsForPiece(pieceId) {
@@ -1018,6 +1471,7 @@
     renderSelectedForm();
     renderPlanInspector();
     render3dVisibility();
+    updateFixedStartStatus();
     renderPlan();
     render3d();
   }
@@ -1207,7 +1661,7 @@
 
   function renderPlanInspector() {
     const placement = selectedPlacement();
-    const piece = placement ? selectedPlacementPiece() : selectedPiece();
+    const piece = placement ? selectedPlacementPiece() : activePlacementPiece();
     const disabled = !placement;
     els.planInspector.classList.toggle("disabled", disabled);
     [
@@ -1224,22 +1678,22 @@
 
     if (!piece) {
       els.planInspectorName.textContent = "未选中部件";
-      els.planInspectorHint.textContent = "单击选择，双击后才能拖动，避免误拆轨道。";
+      els.planInspectorHint.textContent = "单击选择，双击轨道后会粘到鼠标移动，避免误拆轨道。";
       els.planYawInput.value = "";
       return;
     }
 
     if (!placement) {
       els.planInspectorName.textContent = displayPieceName(piece) + " · " + piece.sku;
-      els.planInspectorHint.textContent = pieceParameterSummary(piece) + "。在画布点击放置；曲轨可放置后用垂直翻转变为反向。";
+      els.planInspectorHint.textContent = pieceParameterSummary(piece) + "。轨道已粘到鼠标：单击放置；靠近开放端会自动连接；Esc 退出。";
       els.planYawInput.value = "";
       return;
     }
 
     els.planInspectorName.textContent = displayPieceName(piece) + " · " + piece.sku;
-    els.planInspectorHint.textContent = state.movePlacementId === placement.id
-      ? "移动已解锁：按住该部件拖动，松开后自动锁定。"
-      : "已选中：" + pieceParameterSummary(piece) + "。双击该部件后才能拖动。";
+    els.planInspectorHint.textContent = state.placementSession && state.placementSession.kind === "move" && state.placementSession.placementId === placement.id
+      ? "轨道已粘到鼠标：移动预览，单击或双击确认，Esc 取消。"
+      : "已选中：" + pieceParameterSummary(piece) + "。双击该部件可粘到鼠标移动。";
     els.planYawInput.value = Math.round((placement.yawDeg || 0) * 100) / 100;
     els.planFlipHorizontalBtn.classList.toggle("active", Boolean(placement.flipX));
     els.planFlipVerticalBtn.classList.toggle("active", Boolean(placement.flipY));
@@ -1300,6 +1754,9 @@
         state.project = clone(project);
         G.clearGeometryCache();
         state.selectedPlacementId = null;
+        state.fixedStart = null;
+        state.startPickMode = false;
+        clearPlacementSession();
         setMode("select");
         fitView();
         renderAll();
@@ -1365,6 +1822,7 @@
     drawBoard(ctx);
     drawPlacements2d(ctx);
     drawConnectors(ctx);
+    drawFixedStart(ctx);
     drawPlacePreview(ctx);
     drawRulers(ctx, size);
   }
@@ -1597,10 +2055,11 @@
   }
 
   function drawPlacePreview(ctx) {
-    if (state.mode !== "place" || !state.pointerWorld || !selectedPiece()) return;
+    if (!state.placementSession || state.placementSession.kind !== "new" || !state.pointerWorld) return;
+    const piece = activePlacementPiece();
+    if (!piece) return;
     const candidate = candidatePlacementFor(state.pointerWorld);
     if (!candidate) return;
-    const piece = selectedPiece();
     if (piece.geometry) drawTrackPiece2d(ctx, candidate.placement, piece, false, true);
     else drawAccessory2d(ctx, candidate.placement, piece, false, true);
     if (candidate.sourceConnectorId && piece.geometry) {
@@ -1609,6 +2068,53 @@
       });
       if (source) drawConnectorRing(ctx, source, "#d69732", "rgba(214, 151, 50, .18)", 9);
     }
+  }
+
+  function drawFixedStart(ctx) {
+    if (state.startPickMode && state.pointerWorld) {
+      const nearest = nearestConnector(state.pointerWorld, { thresholdMm: Math.max(28, 24 / camera().zoom) });
+      if (nearest) {
+        drawConnectorRing(ctx, nearest.connector, "#6f45c9", "rgba(111, 69, 201, .18)", 13);
+      } else {
+        drawStartPointMarker(ctx, state.pointerWorld, "#6f45c9", "设置起点");
+      }
+    }
+    if (!state.fixedStart) return;
+    if (state.fixedStart.type === "connector" && state.fixedStart.connector) {
+      drawConnectorRing(ctx, state.fixedStart.connector, "#6f45c9", "rgba(111, 69, 201, .22)", 15);
+      drawStartLabel(ctx, state.fixedStart.connector, "起点");
+      return;
+    }
+    drawStartPointMarker(ctx, state.fixedStart.point, "#6f45c9", "起点");
+  }
+
+  function drawStartPointMarker(ctx, point, color, label) {
+    const screen = worldToScreen(point);
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.fillStyle = "rgba(111, 69, 201, .16)";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(screen.x, screen.y, 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(screen.x - 13, screen.y);
+    ctx.lineTo(screen.x + 13, screen.y);
+    ctx.moveTo(screen.x, screen.y - 13);
+    ctx.lineTo(screen.x, screen.y + 13);
+    ctx.stroke();
+    ctx.restore();
+    drawStartLabel(ctx, point, label);
+  }
+
+  function drawStartLabel(ctx, point, label) {
+    const screen = worldToScreen(point);
+    ctx.save();
+    ctx.fillStyle = "#4a2c91";
+    ctx.font = "12px system-ui";
+    ctx.fillText(label, screen.x + 10, screen.y - 10);
+    ctx.restore();
   }
 
   function drawConnectorRing(ctx, connector, stroke, fill, radius) {

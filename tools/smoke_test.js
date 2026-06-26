@@ -13,7 +13,10 @@ async function main() {
 
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("console", (message) => {
-    if (message.type() === "error") errors.push(message.text());
+    if (message.type() !== "error") return;
+    const text = message.text();
+    if (text.includes("Failed to load resource") && text.includes("ERR_FAILED")) return;
+    errors.push(text);
   });
   await page.route("https://unpkg.com/**", (route) => route.abort());
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 15000 });

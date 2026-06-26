@@ -282,7 +282,7 @@ select {
 
 .canvas-column {
   display: grid;
-  grid-template-rows: 52px 1fr;
+  grid-template-rows: 74px 1fr;
   min-width: 0;
 }
 
@@ -298,7 +298,25 @@ select {
 
 .segmented {
   display: flex;
+  align-items: center;
   gap: 6px;
+  flex-wrap: wrap;
+}
+
+.start-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  max-width: 260px;
+  padding: 0 10px;
+  border: 1px solid #c9b9e8;
+  border-radius: 999px;
+  background: #f0eafa;
+  color: #4a2c91;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .field-row {
