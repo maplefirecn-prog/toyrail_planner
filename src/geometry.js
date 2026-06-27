@@ -70,13 +70,18 @@
 
   function segmentPoints(segments, stepMm) {
     const step = stepMm || 12;
-    const points = [{ x: 0, y: 0 }];
+    const points = [];
     let x = 0;
     let y = 0;
     let heading = 0;
 
+    function ensureCurrentPoint() {
+      if (!points.length) points.push({ x, y });
+    }
+
     (segments || []).forEach(function (segment) {
       if (segment.type === "line") {
+        ensureCurrentPoint();
         const count = Math.max(1, Math.ceil(segment.lengthMm / step));
         for (let i = 1; i <= count; i += 1) {
           const d = segment.lengthMm * i / count;
@@ -91,6 +96,7 @@
       }
 
       if (segment.type === "arc") {
+        ensureCurrentPoint();
         const sign = segment.direction === "left" ? 1 : -1;
         const angle = degToRad(segment.angleDeg);
         const count = Math.max(4, Math.ceil(Math.abs(segment.radiusMm * angle) / step));
@@ -116,8 +122,8 @@
 
       if (segment.type === "polyline") {
         const poly = segment.points || [];
-        poly.forEach(function (point, index) {
-          if (index > 0 || points.length === 0) points.push({ x: point.x, y: point.y });
+        poly.forEach(function (point) {
+          points.push({ x: point.x, y: point.y });
         });
         if (poly.length >= 2) {
           const a = poly[poly.length - 2];

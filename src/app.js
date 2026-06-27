@@ -1592,7 +1592,10 @@
       els.pieceLibrary.innerHTML = '<div class="muted-block">请先导入 catalog JSON。</div>';
       return;
     }
-    els.pieceLibrary.innerHTML = (catalog.pieces || []).map(function (piece) {
+    const visiblePieces = (catalog.pieces || []).filter(function (piece) {
+      return !(piece.tags || []).includes("hidden");
+    });
+    els.pieceLibrary.innerHTML = visiblePieces.map(function (piece) {
       const icon = piece.kind.includes("curve") ? "curve" : piece.kind.includes("turnout") ? "turnout" : piece.kind.startsWith("accessory") ? "accessory" : "";
       const active = piece.id === state.selectedPieceId ? " active" : "";
       const zhName = displayPieceName(piece);

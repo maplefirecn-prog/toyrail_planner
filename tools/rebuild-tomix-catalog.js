@@ -51,22 +51,32 @@ function isPlainWoodenDuplicate(p) {
   return PLAIN_WOODEN_SKUS.has(p.sku);
 }
 
-function crossingGeometry(L, angleDeg) {
+function crossingGeometry(L, angleDeg, orientation) {
   const a = angleDeg * Math.PI / 180;
   const half = L / 2;
+  // orientation="right" matches the SCARM-style simple X crossing shown as
+  // upper-left -> lower-right. orientation="left" is its mirror.
+  const sign = orientation === "left" ? -1 : 1;
   const norm = function (v) { let r = v % 360; if (r > 180) r -= 360; if (r <= -180) r += 360; return r; };
+  const A = { id: "A", x: -half, y: 0, z: 0, yawDeg: 180, profile: PROFILE };
+  const B = { id: "B", x: half, y: 0, z: 0, yawDeg: 0, profile: PROFILE };
+  const C = { id: "C", x: -half * Math.cos(a), y: sign * half * Math.sin(a), z: 0, yawDeg: norm(180 - sign * angleDeg), profile: PROFILE };
+  const D = { id: "D", x: half * Math.cos(a), y: -sign * half * Math.sin(a), z: 0, yawDeg: norm(-sign * angleDeg), profile: PROFILE };
   return {
-    connectors: [
-      { id: "A", x: -half, y: 0, z: 0, yawDeg: 180, profile: PROFILE },
-      { id: "B", x: half, y: 0, z: 0, yawDeg: 0, profile: PROFILE },
-      { id: "C", x: -half * Math.cos(a), y: -half * Math.sin(a), z: 0, yawDeg: norm(180 + angleDeg), profile: PROFILE },
-      { id: "D", x: half * Math.cos(a), y: half * Math.sin(a), z: 0, yawDeg: angleDeg, profile: PROFILE }
-    ],
+    connectors: [A, B, C, D],
     routes: [
-      { id: "main", connectorIds: ["A", "B"], segments: [{ type: "line", lengthMm: L }] },
-      { id: "cross", connectorIds: ["C", "D"], segments: [{ type: "line", lengthMm: L }] }
+      { id: "main", connectorIds: ["A", "B"], segments: [{ type: "polyline", points: [{ x: A.x, y: A.y }, { x: B.x, y: B.y }] }] },
+      { id: "cross", connectorIds: ["C", "D"], segments: [{ type: "polyline", points: [{ x: C.x, y: C.y }, { x: D.x, y: D.y }] }] }
     ]
   };
+}
+
+function simpleCrossingSpec(piece) {
+  if (piece.sku === "1321" || /^X72\.5-30\b/.test(piece.name || "")) return { L: 72.5, angle: 30, orientation: "right" };
+  if (piece.sku === "1324" || /^X37-90\b/.test(piece.name || "")) return { L: 37, angle: 90, orientation: "right" };
+  if (piece.sku === "1322" || /^XR140-15\b/.test(piece.name || "")) return { L: 140, angle: 15, orientation: "right" };
+  if (piece.sku === "1323" || /^XL140-15\b/.test(piece.name || "")) return { L: 140, angle: 15, orientation: "left" };
+  return null;
 }
 
 function turnoutGeometry(straightLen, radius, angleDeg, direction) {
@@ -213,23 +223,23 @@ cat.pieces.forEach(function (p) {
     if (isVariant(name)) return;
   }
 
-  // Recategorize X crossings
-  if (/^X[A-Z]?\d/.test(name) && p.kind === "accessory.structure") {
-    const m = name.match(/X[A-Z]?([\d.]+)-(\d+)/);
-    if (m) {
-      const L = parseFloat(m[1]);
-      const angle = parseFloat(m[2]);
-      const geo = crossingGeometry(L, angle);
+  // Recategorize/correct simple X crossings. Use explicit connector-to-connector
+  // polylines; line segments start from local origin in the renderer and are
+  // incorrect for center-anchored diamond crossings.
+  if (/^X[A-Z]?\d/.test(name) && (p.kind === "accessory.structure" || p.kind === "track.crossing")) {
+    const spec = simpleCrossingSpec(p);
+    if (spec) {
+      const geo = crossingGeometry(spec.L, spec.angle, spec.orientation);
       newPieces.push({
         id: p.id, sku: p.sku, name: name.replace(" 配件", " 交叉轨"),
         kind: "track.crossing",
-        tags: (p.tags || []).concat(["crossing"]),
+        tags: Array.from(new Set((p.tags || []).filter(function (tag) { return tag !== "left" && tag !== "right"; }).concat(["crossing", "simple-crossing", spec.orientation]))),
         geometry: geo,
         render: { railGaugeMm: 9, roadbedWidthMm: 18.5, sleeperSpacingMm: 6 },
         bom: p.bom,
         placement: { anchor: "center", canAutoGenerate: false },
-        sources: estSource("Diamond crossing; through-length " + L + "mm, angle " + angle + "deg. Estimated from product name."),
-        metadata: Object.assign({}, p.metadata, { notes: "Estimated crossing geometry. Original: " + (p.metadata && p.metadata.originalName || "") })
+        sources: estSource("Simple diamond crossing; through-length " + spec.L + "mm, angle " + spec.angle + "deg, " + spec.orientation + " orientation. Geometry uses explicit connector-to-connector polylines based on SCARM-style visual behavior and product name dimensions."),
+        metadata: Object.assign({}, p.metadata, { notes: "Simple crossing geometry corrected to two explicit polylines. Original: " + (p.metadata && p.metadata.originalName || p.name || "") })
       });
       return;
     }
@@ -354,14 +364,14 @@ const REAL_TURNOUTS = [
   { sku: "1262", name: "N-PLR541/280-15 三向道岔 先左后右", kind: "track.turnout",
     geo: threeWayGeometry(140, 541, "left", 280, "right", 15), tags: ["3way"] },
 
-  // 4. 双交叉 / 复式交分
+  // 4. 双交叉 / 复式交分（暂时隐藏：需要道岔状态/可通行路径建模后再启用）
   // (1240 N- dropped: geometry identical to W-PC, per PC-dedup rule)
   { sku: "1247", name: "W-PX280 双线剪式交叉 宽PC", kind: "track.crossing",
-    geo: doubleCrossoverGeometry(280, 37), tags: ["double-crossover", "wide-pc"] },
+    geo: doubleCrossoverGeometry(280, 37), tags: ["double-crossover", "wide-pc", "experimental", "hidden"] },
   { sku: "1245", name: "PXL140-15 复式交分 左", kind: "track.crossing",
-    geo: doubleSlipGeometry(140, 15, "left"), tags: ["double-slip", "left"] },
+    geo: doubleSlipGeometry(140, 15, "left"), tags: ["double-slip", "left", "experimental", "hidden"] },
   { sku: "1246", name: "PXR140-15 复式交分 右", kind: "track.crossing",
-    geo: doubleSlipGeometry(140, 15, "right"), tags: ["double-slip", "right"] },
+    geo: doubleSlipGeometry(140, 15, "right"), tags: ["double-slip", "right", "experimental", "hidden"] },
 
   // 5. 弧线道岔 317/280-45: outer R317, inner R280, 45deg
   { sku: "1279", name: "CPL317/280-45 弧线道岔 左", kind: "track.turnout",
@@ -391,16 +401,19 @@ REAL_TURNOUTS.forEach(function (t) {
   });
 });
 
+const baseDescription = "TOMIX Fine Track catalog generated from the official TOMIX beginner/lineup pages. Some complex products require later product-page verification.";
 const out = Object.assign({}, cat, {
-  version: "2026-06-23-curated",
-  description: (cat.description || "") + " Curated 2026-06-23: deduped to PC+plain variants, X crossings recategorized with estimated geometry, estimated piers and turnouts added (marked confidence=estimated).",
+  version: "2026-06-27-crossing-polyline-v2",
+  description: baseDescription + " Curated 2026-06-27 v2: deduped to PC+plain variants, simple X crossings corrected to connector-to-connector polylines, complex crossings hidden as experimental, estimated piers and turnouts added.",
   pieces: newPieces
 });
 
 const body = "window.RailTomixCatalog = " + JSON.stringify(out, null, 2) + ";\n";
 fs.writeFileSync(path.resolve(__dirname, "..", "src", "tomix-catalog.js"), body);
+fs.writeFileSync(path.resolve(__dirname, "..", "data", "tomix-fine-track.catalog.json"), JSON.stringify(out, null, 2) + "\n");
 
 console.log("Wrote src/tomix-catalog.js");
+console.log("Wrote data/tomix-fine-track.catalog.json");
 console.log("pieces: " + newPieces.length + " (was " + cat.pieces.length + ")");
 const byKind = {};
 newPieces.forEach(function (p) { byKind[p.kind] = (byKind[p.kind] || 0) + 1; });

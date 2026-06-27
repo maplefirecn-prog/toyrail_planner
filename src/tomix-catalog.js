@@ -1,13 +1,13 @@
 window.RailTomixCatalog = {
   "schema": "raildesign.catalog.v1",
   "catalogId": "tomix.fine-track.n.official-list",
-  "version": "2026-06-23-curated",
+  "version": "2026-06-27-crossing-polyline-v2",
   "units": "mm",
   "manufacturer": "Tomix",
   "productLine": "Fine Track",
   "scale": "N",
   "gaugeMm": 9,
-  "description": "TOMIX Fine Track catalog generated from the official TOMIX beginner/lineup pages. Some complex products require later product-page verification. Curated 2026-06-23: deduped to PC+plain variants, X crossings recategorized with estimated geometry, estimated piers and turnouts added (marked confidence=estimated). Curated 2026-06-23: deduped to PC+plain variants, X crossings recategorized with estimated geometry, estimated piers and turnouts added (marked confidence=estimated). Curated 2026-06-23: deduped to PC+plain variants, X crossings recategorized with estimated geometry, estimated piers and turnouts added (marked confidence=estimated). Curated 2026-06-23: deduped to PC+plain variants, X crossings recategorized with estimated geometry, estimated piers and turnouts added (marked confidence=estimated). Curated 2026-06-23: deduped to PC+plain variants, X crossings recategorized with estimated geometry, estimated piers and turnouts added (marked confidence=estimated). Curated 2026-06-23: deduped to PC+plain variants, X crossings recategorized with estimated geometry, estimated piers and turnouts added (marked confidence=estimated). Curated 2026-06-23: deduped to PC+plain variants, X crossings recategorized with estimated geometry, estimated piers and turnouts added (marked confidence=estimated). Curated 2026-06-23: deduped to PC+plain variants, X crossings recategorized with estimated geometry, estimated piers and turnouts added (marked confidence=estimated). Curated 2026-06-23: deduped to PC+plain variants, X crossings recategorized with estimated geometry, estimated piers and turnouts added (marked confidence=estimated).",
+  "description": "TOMIX Fine Track catalog generated from the official TOMIX beginner/lineup pages. Some complex products require later product-page verification. Curated 2026-06-27 v2: deduped to PC+plain variants, simple X crossings corrected to connector-to-connector polylines, complex crossings hidden as experimental, estimated piers and turnouts added.",
   "connectorProfiles": [
     {
       "id": "tomix-fine-track",
@@ -1288,7 +1288,9 @@ window.RailTomixCatalog = {
         "fine-track",
         "rail_spc",
         "rail-related",
-        "crossing"
+        "crossing",
+        "simple-crossing",
+        "right"
       ],
       "geometry": {
         "connectors": [
@@ -1311,17 +1313,17 @@ window.RailTomixCatalog = {
           {
             "id": "C",
             "x": -31.393420887185904,
-            "y": -18.124999999999996,
+            "y": 18.124999999999996,
             "z": 0,
-            "yawDeg": -150,
+            "yawDeg": 150,
             "profile": "tomix-fine-track"
           },
           {
             "id": "D",
             "x": 31.393420887185904,
-            "y": 18.124999999999996,
+            "y": -18.124999999999996,
             "z": 0,
-            "yawDeg": 30,
+            "yawDeg": -30,
             "profile": "tomix-fine-track"
           }
         ],
@@ -1334,8 +1336,17 @@ window.RailTomixCatalog = {
             ],
             "segments": [
               {
-                "type": "line",
-                "lengthMm": 72.5
+                "type": "polyline",
+                "points": [
+                  {
+                    "x": -36.25,
+                    "y": 0
+                  },
+                  {
+                    "x": 36.25,
+                    "y": 0
+                  }
+                ]
               }
             ]
           },
@@ -1347,8 +1358,17 @@ window.RailTomixCatalog = {
             ],
             "segments": [
               {
-                "type": "line",
-                "lengthMm": 72.5
+                "type": "polyline",
+                "points": [
+                  {
+                    "x": -31.393420887185904,
+                    "y": 18.124999999999996
+                  },
+                  {
+                    "x": 31.393420887185904,
+                    "y": -18.124999999999996
+                  }
+                ]
               }
             ]
           }
@@ -1373,11 +1393,11 @@ window.RailTomixCatalog = {
           "title": "Estimated geometry (not from official spec)",
           "retrievedAt": "2026-06-23",
           "confidence": "estimated",
-          "notes": "Diamond crossing; through-length 72.5mm, angle 30deg. Estimated from product name."
+          "notes": "Simple diamond crossing; through-length 72.5mm, angle 30deg, right orientation. Geometry uses explicit connector-to-connector polylines based on SCARM-style visual behavior and product name dimensions."
         }
       ],
       "metadata": {
-        "notes": "Estimated crossing geometry. Original: クロッシングレール X72.5-30(F)",
+        "notes": "Simple crossing geometry corrected to two explicit polylines. Original: クロッシングレール X72.5-30(F)",
         "originalName": "クロッシングレール X72.5-30(F)"
       }
     },
@@ -1391,7 +1411,9 @@ window.RailTomixCatalog = {
         "fine-track",
         "rail_spc",
         "rail-related",
-        "crossing"
+        "crossing",
+        "simple-crossing",
+        "right"
       ],
       "geometry": {
         "connectors": [
@@ -1414,17 +1436,17 @@ window.RailTomixCatalog = {
           {
             "id": "C",
             "x": -67.61480784023477,
-            "y": -18.117333157176454,
+            "y": 18.117333157176454,
             "z": 0,
-            "yawDeg": -165,
+            "yawDeg": 165,
             "profile": "tomix-fine-track"
           },
           {
             "id": "D",
             "x": 67.61480784023477,
-            "y": 18.117333157176454,
+            "y": -18.117333157176454,
             "z": 0,
-            "yawDeg": 15,
+            "yawDeg": -15,
             "profile": "tomix-fine-track"
           }
         ],
@@ -1437,8 +1459,17 @@ window.RailTomixCatalog = {
             ],
             "segments": [
               {
-                "type": "line",
-                "lengthMm": 140
+                "type": "polyline",
+                "points": [
+                  {
+                    "x": -70,
+                    "y": 0
+                  },
+                  {
+                    "x": 70,
+                    "y": 0
+                  }
+                ]
               }
             ]
           },
@@ -1450,8 +1481,17 @@ window.RailTomixCatalog = {
             ],
             "segments": [
               {
-                "type": "line",
-                "lengthMm": 140
+                "type": "polyline",
+                "points": [
+                  {
+                    "x": -67.61480784023477,
+                    "y": 18.117333157176454
+                  },
+                  {
+                    "x": 67.61480784023477,
+                    "y": -18.117333157176454
+                  }
+                ]
               }
             ]
           }
@@ -1476,11 +1516,11 @@ window.RailTomixCatalog = {
           "title": "Estimated geometry (not from official spec)",
           "retrievedAt": "2026-06-23",
           "confidence": "estimated",
-          "notes": "Diamond crossing; through-length 140mm, angle 15deg. Estimated from product name."
+          "notes": "Simple diamond crossing; through-length 140mm, angle 15deg, right orientation. Geometry uses explicit connector-to-connector polylines based on SCARM-style visual behavior and product name dimensions."
         }
       ],
       "metadata": {
-        "notes": "Estimated crossing geometry. Original: クロッシングレール XR140-15(F)",
+        "notes": "Simple crossing geometry corrected to two explicit polylines. Original: クロッシングレール XR140-15(F)",
         "originalName": "クロッシングレール XR140-15(F)"
       }
     },
@@ -1494,7 +1534,9 @@ window.RailTomixCatalog = {
         "fine-track",
         "rail_spc",
         "rail-related",
-        "crossing"
+        "crossing",
+        "simple-crossing",
+        "left"
       ],
       "geometry": {
         "connectors": [
@@ -1540,8 +1582,17 @@ window.RailTomixCatalog = {
             ],
             "segments": [
               {
-                "type": "line",
-                "lengthMm": 140
+                "type": "polyline",
+                "points": [
+                  {
+                    "x": -70,
+                    "y": 0
+                  },
+                  {
+                    "x": 70,
+                    "y": 0
+                  }
+                ]
               }
             ]
           },
@@ -1553,8 +1604,17 @@ window.RailTomixCatalog = {
             ],
             "segments": [
               {
-                "type": "line",
-                "lengthMm": 140
+                "type": "polyline",
+                "points": [
+                  {
+                    "x": -67.61480784023477,
+                    "y": -18.117333157176454
+                  },
+                  {
+                    "x": 67.61480784023477,
+                    "y": 18.117333157176454
+                  }
+                ]
               }
             ]
           }
@@ -1579,11 +1639,11 @@ window.RailTomixCatalog = {
           "title": "Estimated geometry (not from official spec)",
           "retrievedAt": "2026-06-23",
           "confidence": "estimated",
-          "notes": "Diamond crossing; through-length 140mm, angle 15deg. Estimated from product name."
+          "notes": "Simple diamond crossing; through-length 140mm, angle 15deg, left orientation. Geometry uses explicit connector-to-connector polylines based on SCARM-style visual behavior and product name dimensions."
         }
       ],
       "metadata": {
-        "notes": "Estimated crossing geometry. Original: クロッシングレール XL140-15(F)",
+        "notes": "Simple crossing geometry corrected to two explicit polylines. Original: クロッシングレール XL140-15(F)",
         "originalName": "クロッシングレール XL140-15(F)"
       }
     },
@@ -1597,7 +1657,9 @@ window.RailTomixCatalog = {
         "fine-track",
         "rail_spc",
         "rail-related",
-        "crossing"
+        "crossing",
+        "simple-crossing",
+        "right"
       ],
       "geometry": {
         "connectors": [
@@ -1620,17 +1682,17 @@ window.RailTomixCatalog = {
           {
             "id": "C",
             "x": -1.1327982892113017e-15,
-            "y": -18.5,
+            "y": 18.5,
             "z": 0,
-            "yawDeg": -90,
+            "yawDeg": 90,
             "profile": "tomix-fine-track"
           },
           {
             "id": "D",
             "x": 1.1327982892113017e-15,
-            "y": 18.5,
+            "y": -18.5,
             "z": 0,
-            "yawDeg": 90,
+            "yawDeg": -90,
             "profile": "tomix-fine-track"
           }
         ],
@@ -1643,8 +1705,17 @@ window.RailTomixCatalog = {
             ],
             "segments": [
               {
-                "type": "line",
-                "lengthMm": 37
+                "type": "polyline",
+                "points": [
+                  {
+                    "x": -18.5,
+                    "y": 0
+                  },
+                  {
+                    "x": 18.5,
+                    "y": 0
+                  }
+                ]
               }
             ]
           },
@@ -1656,8 +1727,17 @@ window.RailTomixCatalog = {
             ],
             "segments": [
               {
-                "type": "line",
-                "lengthMm": 37
+                "type": "polyline",
+                "points": [
+                  {
+                    "x": -1.1327982892113017e-15,
+                    "y": 18.5
+                  },
+                  {
+                    "x": 1.1327982892113017e-15,
+                    "y": -18.5
+                  }
+                ]
               }
             ]
           }
@@ -1682,11 +1762,11 @@ window.RailTomixCatalog = {
           "title": "Estimated geometry (not from official spec)",
           "retrievedAt": "2026-06-23",
           "confidence": "estimated",
-          "notes": "Diamond crossing; through-length 37mm, angle 90deg. Estimated from product name."
+          "notes": "Simple diamond crossing; through-length 37mm, angle 90deg, right orientation. Geometry uses explicit connector-to-connector polylines based on SCARM-style visual behavior and product name dimensions."
         }
       ],
       "metadata": {
-        "notes": "Estimated crossing geometry. Original: クロッシングレール X37-90(F)(補助レール付)",
+        "notes": "Simple crossing geometry corrected to two explicit polylines. Original: クロッシングレール X37-90(F)(補助レール付)",
         "originalName": "クロッシングレール X37-90(F)(補助レール付)"
       }
     },
@@ -3643,6 +3723,8 @@ window.RailTomixCatalog = {
       "tags": [
         "double-crossover",
         "wide-pc",
+        "experimental",
+        "hidden",
         "tomix",
         "fine-track"
       ],
@@ -3785,6 +3867,8 @@ window.RailTomixCatalog = {
       "tags": [
         "double-slip",
         "left",
+        "experimental",
+        "hidden",
         "tomix",
         "fine-track"
       ],
@@ -3883,6 +3967,8 @@ window.RailTomixCatalog = {
       "tags": [
         "double-slip",
         "right",
+        "experimental",
+        "hidden",
         "tomix",
         "fine-track"
       ],
