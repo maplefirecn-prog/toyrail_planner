@@ -1,25 +1,31 @@
 {
-  "name": "toyrail_planner",
+  "name": "toyrail-planner",
   "version": "1.0.0",
-  "description": "Web 模型铁路（N 轨）轨道设计工具。SCARM 风格的\"拖近吸附 + 角度校正\"自动连接，零安装依赖、纯浏览器运行。",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Web 模型铁路（N 轨）轨道设计工具。SCARM 风格的拖近吸附 + 角度校正自动连接，纯浏览器运行。",
+  "license": "MIT",
+  "homepage": "https://maplefirecn-prog.github.io/toyrail_planner/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maplefirecn-prog/toyrail_planner.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/maplefirecn-prog/toyrail_planner/issues"
   },
-  "homepage": "https://github.com/maplefirecn-prog/toyrail_planner#readme",
+  "scripts": {
+    "serve": "node tools/serve.js",
+    "check": "node --check src/app.js && node --check tools/serve.js && node --check tools/smoke_test.js",
+    "smoke": "node tools/smoke_test.js http://127.0.0.1:8765/",
+    "browsers:install": "playwright install chromium",
+    "test": "npm run check"
+  },
+  "keywords": [
+    "railway",
+    "model-railway",
+    "track-planner",
+    "tomix",
+    "github-pages"
+  ],
+  "author": "Tom Lee",
   "devDependencies": {
     "playwright": "^1.61.1"
   }
