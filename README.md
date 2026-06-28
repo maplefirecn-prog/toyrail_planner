@@ -45,18 +45,6 @@ npm run check
 
 > 说明：smoke test 会故意拦截 Dexie CDN 请求，以验证本地 `vendor/dexie-fallback.js` 备用存储路径；由此产生的预期资源加载错误会被测试忽略。
 
-## GitHub Pages 部署
-
-本项目无需构建步骤，可直接部署为 GitHub Pages 静态站点。
-
-1. 推送仓库到 GitHub。
-2. 打开仓库 `Settings → Pages`。
-3. 选择 `Deploy from a branch`。
-4. Branch 选择 `main`，Folder 选择 `/root`。
-5. 保存后访问：`https://maplefirecn-prog.github.io/toyrail_planner/`。
-
-注意：用户项目数据保存在访问者浏览器的 IndexedDB 中，不会同步到服务器；需要共享布局时请使用导出/导入 JSON。
-
 ## 核心能力
 
 ### 自动连接（拖近吸附 + 角度校正）
