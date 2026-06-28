@@ -34,13 +34,15 @@ body {
 
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }
 
 button,
 select,
-input {
+input,
+textarea {
   border: 1px solid var(--line);
   border-radius: 7px;
 }
@@ -55,6 +57,14 @@ button {
 
 button:hover {
   border-color: var(--line-strong);
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: .62;
 }
 
 button.primary,
@@ -75,12 +85,18 @@ button.small {
 }
 
 input,
-select {
+select,
+textarea {
   width: 100%;
   min-height: 34px;
   padding: 6px 8px;
   background: #fffaf1;
   color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.55;
 }
 
 .app-shell {
@@ -556,6 +572,177 @@ canvas {
   margin-top: 8px;
 }
 
+.ai-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: none;
+  justify-content: flex-end;
+  background: rgba(39, 35, 29, .32);
+}
+
+.ai-panel.open {
+  display: flex;
+}
+
+.ai-panel-card {
+  width: min(520px, 100vw);
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.ai-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  background: #fbf6ed;
+}
+
+.ai-panel-head h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.ai-panel-head p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ai-panel-body {
+  min-height: 0;
+  overflow: auto;
+  padding: 14px;
+}
+
+.ai-section {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ai-section:last-child {
+  border-bottom: 0;
+}
+
+.ai-section h3 {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ai-section label {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.ai-key-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.ai-note {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ai-template-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin: 9px 0;
+}
+
+.ai-template-grid button {
+  min-height: 32px;
+  font-size: 12px;
+}
+
+.ai-warning {
+  margin: 10px 0;
+  padding: 9px;
+  border: 1px solid #d6b56b;
+  border-radius: 7px;
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ai-actions {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ai-result {
+  margin-bottom: 10px;
+}
+
+.ai-result-title {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.ai-result-desc {
+  margin: 5px 0 9px;
+  line-height: 1.55;
+}
+
+.ai-result-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin: 8px 0;
+}
+
+.ai-result-metrics div {
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, .08);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, .42);
+}
+
+.ai-result-metrics b,
+.ai-result-metrics span {
+  display: block;
+}
+
+.ai-result-metrics b {
+  font-size: 15px;
+  color: var(--text);
+}
+
+.ai-result-metrics span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.ai-issues {
+  margin-top: 8px;
+}
+
+.ai-issues ul {
+  margin: 5px 0 0;
+  padding-left: 18px;
+}
+
 .hidden {
   display: none !important;
 }
@@ -614,6 +801,13 @@ canvas {
   }
 
   .plan-inspector {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-key-row,
+  .ai-template-grid,
+  .ai-actions,
+  .ai-result-metrics {
     grid-template-columns: 1fr;
   }
 

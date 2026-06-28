@@ -93,14 +93,44 @@ SCARM 的核心交互：两根轨道靠近时，断点自动吸附并**调整到
 - 多高度跨越：placement 支持 `z` 起点 + `zEnd` 终点，单段轨道可表达爬坡
 - 导入 / 导出 catalog / project JSON，IndexedDB 持久化
 - 校验框实时显示：开放端点数 · 连通分量数
+- AI 对话式规划：输入需求后生成候选 project JSON，本地校验后可一键替换当前规划
+
+### AI 对话式规划
+
+顶部工具栏的“AI 规划”会打开右侧抽屉。用户可以选择：
+
+- `Anthropic Messages API`
+- `OpenAI-compatible Chat Completions API`
+
+填写 `Base URL`、`Model` 和 `API Key` 后即可输入自然语言需求，或点击内置样板提示词，例如重新设计轨道、基于当前布局扩展、从当前起点继续铺轨、优化当前布局、生成小型站场。
+
+AI 请求会自动带上压缩后的上下文：
+
+- 当前项目的 board / layers / placements / connections
+- 固定起点与开放端点
+- 当前校验结果和本地统计
+- 压缩后的素材库 pieceId、连接器和路线几何
+
+AI 必须返回 `raildesign.aiGeneratedProject.v1` 包装 JSON，其中包含摘要和完整 `raildesign.project.v1` 候选项目。应用前程序会在本地重新校验：
+
+- `pieceId` 是否存在
+- `connectorId` 是否存在
+- connector 是否被重复连接
+- profile 是否兼容
+- 连接端点距离和朝向是否可疑
+- 是否超出画布，以及是否存在可能碰撞
+
+通过结构校验后，点击“替换当前规划 JSON”会替换当前项目的 `placements` 和 `connections`，并保留原项目的 `projectId`、名称、画布、视图和图层。
+
+> 安全说明：API Key 只保存在当前浏览器本地，保存后界面只显示星号，不能查看明文。静态网页无法真正隐藏请求密钥；如果部署到 GitHub Pages 作为体验站，请使用低额度、可随时撤销的临时密钥。应用 AI 结果前建议先导出当前项目 JSON 作为备份。
 
 ## 素材库
 
-内置 Tomix Fine Track 共 85 件（catalog 版本 `2026-06-23-curated`）：
+内置 Tomix Fine Track 共 64 件（catalog 版本 `2026-06-27-crossing-polyline-v2`）：
 
-- **轨道**（8 直 + 15 曲 + 7 交叉 + 10 道岔，含 541-15 经典、280-30 紧凑、3-way、剪式交叉、复式交分、弧线、迷你等）
-- **桥脚 / 立柱**（红砖单线、复线高架、复线 PC、阶层梁、筑堤、螺旋等）
-- **坡道桥脚**：3016/3044 套件拆为 D1-D10 / DS-D1 到 DS-D10 共 20 件递增高度（5.5mm 步进，配合 4% 标准坡度 280mm 间距）
+- **轨道**：8 直 + 15 曲 + 7 交叉 + 10 道岔
+- **支撑 / 结构件**：22 个桥脚 / 立柱 / 坡道支撑 + 2 个结构件
+- catalog 会在初始化时写入 IndexedDB；如果内置 catalog 版本或件数变化，会自动刷新本地缓存
 
 ## 性能优化
 
@@ -113,7 +143,7 @@ SCARM 的核心交互：两根轨道靠近时，断点自动吸附并**调整到
 
 ```
 src/
-  app.js                主应用（状态、渲染、交互、3D 预览）
+  app.js                主应用（状态、渲染、交互、AI 规划、3D 预览）
   geometry.js           几何引擎（坐标变换、连接器、吸附、指纹缓存）
   spatial.js            uniform grid 空间索引
   graph.js              拓扑图（connector 为节点，route/connection 为边）

@@ -22,6 +22,7 @@
         <button id="exportProjectBtn">导出项目 JSON</button>
         <button id="exportCatalogBtn">导出当前素材库</button>
         <button id="importJsonBtn">导入 JSON</button>
+        <button id="aiPlannerOpenBtn">AI 规划</button>
         <input id="jsonInput" type="file" accept="application/json,.json" hidden>
       </div>
     </header>
@@ -139,6 +140,68 @@
       </aside>
     </main>
   </div>
+
+  <aside id="aiPlannerPanel" class="ai-panel" aria-hidden="true">
+    <div class="ai-panel-card">
+      <div class="ai-panel-head">
+        <div>
+          <h2>AI 轨道规划</h2>
+          <p>输入需求后，AI 会生成完整项目 JSON。应用前请先导出当前项目备份。</p>
+        </div>
+        <button id="aiPlannerCloseBtn" class="small" aria-label="关闭 AI 规划">关闭</button>
+      </div>
+
+      <div class="ai-panel-body">
+        <section class="ai-section">
+          <h3>API 设置</h3>
+          <label>API 格式
+            <select id="aiProviderSelect">
+              <option value="anthropic">Anthropic Messages API</option>
+              <option value="openai">OpenAI-compatible Chat Completions API</option>
+            </select>
+          </label>
+          <label>Base URL
+            <input id="aiBaseUrlInput" type="url" placeholder="https://api.anthropic.com 或 https://api.openai.com/v1">
+          </label>
+          <label>Model
+            <input id="aiModelInput" type="text" placeholder="claude-opus-4-8 或你的兼容模型名">
+          </label>
+          <div class="ai-key-row">
+            <label>API Key
+              <input id="aiApiKeyInput" type="password" placeholder="输入后保存，本界面不会再次显示明文">
+            </label>
+            <button id="aiSaveKeyBtn">保存</button>
+            <button id="aiDeleteKeyBtn" class="danger">删除</button>
+          </div>
+          <p id="aiKeyStatus" class="ai-note">API Key 仅保存在当前浏览器本地。</p>
+        </section>
+
+        <section class="ai-section">
+          <h3>规划需求</h3>
+          <textarea id="aiPromptInput" rows="7" placeholder="例如：请基于当前布局增加一条会车线和短侧线，尽量减少开放端点。"></textarea>
+          <div class="ai-template-grid">
+            <button data-ai-template="重新设计">重新设计一个轨道</button>
+            <button data-ai-template="扩展当前">基于当前布局扩展</button>
+            <button data-ai-template="从起点">从当前起点继续铺轨</button>
+            <button data-ai-template="优化">优化当前布局</button>
+            <button data-ai-template="站场">生成站场布局</button>
+          </div>
+          <div class="ai-warning">应用 AI 结果会替换当前规划。建议先点击“导出项目 JSON”保存备份。</div>
+          <div class="button-row ai-actions">
+            <button id="aiGenerateBtn" class="primary">生成规划</button>
+            <button id="aiStopBtn" disabled>停止</button>
+            <button id="aiCopyJsonBtn" disabled>复制 JSON</button>
+          </div>
+        </section>
+
+        <section class="ai-section">
+          <h3>生成结果</h3>
+          <div id="aiResultBox" class="ai-result muted-block">尚未生成规划。</div>
+          <button id="aiApplyBtn" class="primary" disabled>替换当前规划 JSON</button>
+        </section>
+      </div>
+    </div>
+  </aside>
 
   <script defer src="https://unpkg.com/dexie@4.0.11/dist/dexie.min.js"></script>
   <script defer src="vendor/dexie-fallback.js"></script>
